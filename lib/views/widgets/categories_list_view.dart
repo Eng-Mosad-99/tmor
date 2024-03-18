@@ -15,7 +15,7 @@ class CategoriesListView extends StatelessWidget {
       builder: (controller) => SizedBox(
         height: 103.h,
         child: ListView.separated(
-          separatorBuilder: (context, index) =>  SizedBox(
+          separatorBuilder: (context, index) => SizedBox(
             width: 10.w,
           ),
           scrollDirection: Axis.horizontal,
@@ -36,6 +36,7 @@ class CategoriesListView extends StatelessWidget {
               SizedBox(
                 width: 75.w,
                 child: CustomText(
+                  alignment: Alignment.center,
                   text: controller.categories[index].name,
                   fontSize: 14.sp,
                   maxLines: 1,

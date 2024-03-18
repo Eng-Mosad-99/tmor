@@ -11,8 +11,8 @@ class FavoriteView extends StatelessWidget {
       body: Center(
         child: SvgPicture.asset(
           'assets/images/svgg.svg',
-          width: 300.w,
-          height: 300.h,
+          width: 200.w,
+          height: 200.h,
         ),
       ),
     );

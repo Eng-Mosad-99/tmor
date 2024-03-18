@@ -57,7 +57,7 @@ class CategoryView extends StatelessWidget {
                       children: [
                         Container(
                           margin: EdgeInsets.only(top: 10.sp),
-                          width: 75.w,
+                          width: 100.w,
                           height: 75.h,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10.sp),
@@ -69,11 +69,14 @@ class CategoryView extends StatelessWidget {
                             ),
                           ),
                         ),
-                        CustomText(
-                          text: controller.categories[index].name,
-                          fontSize: 14.sp,
-                          maxLines: 1,
-                          alignment: Alignment.center,
+                        SizedBox(
+                          width: 80.w,
+                          child: CustomText(
+                            text: controller.categories[index].name,
+                            fontSize: 13.sp,
+                            maxLines: 1,
+                            alignment: Alignment.center,
+                          ),
                         ),
                       ],
                     );

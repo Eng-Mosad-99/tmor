@@ -41,11 +41,11 @@ class LatestItemDetails extends StatelessWidget {
       body: GetBuilder<HomeViewModel>(
         init: HomeViewModel(),
         builder: (controller) => Padding(
-          padding:  EdgeInsets.all(8.0.sp),
+          padding: EdgeInsets.all(8.0.sp),
           child: CustomScrollView(
             slivers: [
               SliverGrid(
-                gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   crossAxisSpacing: 10.sp,
                   mainAxisSpacing: 10.sp,
@@ -74,18 +74,18 @@ class LatestItemDetails extends StatelessWidget {
                             alignment: Alignment.bottomCenter,
                             child: Container(
                               width: double.infinity,
-                              padding:  EdgeInsets.all(8.sp),
-                              margin:  EdgeInsets.symmetric(
+                              padding: EdgeInsets.all(8.sp),
+                              margin: EdgeInsets.symmetric(
                                 horizontal: 10.sp,
                               ),
-                              decoration:  BoxDecoration(
+                              decoration: BoxDecoration(
                                 borderRadius: BorderRadius.only(
                                   topLeft: Radius.circular(10.sp),
                                   topRight: Radius.circular(10.sp),
                                 ),
-                                color:const Color(0xfffeeeef),
+                                color: const Color(0xfffeeeef),
                               ),
-                              child:  Text(
+                              child: Text(
                                 '5.9 % Discount',
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
@@ -97,7 +97,7 @@ class LatestItemDetails extends StatelessWidget {
                           ),
                         ],
                       ),
-                       SizedBox(
+                      SizedBox(
                         height: 5.h,
                       ),
                       CustomText(
@@ -107,7 +107,7 @@ class LatestItemDetails extends StatelessWidget {
                         fontSize: 13.sp,
                         color: const Color(0xff39785c),
                       ),
-                       SizedBox(
+                      SizedBox(
                         height: 5.h,
                       ),
                       Row(
@@ -120,7 +120,7 @@ class LatestItemDetails extends StatelessWidget {
                             decoration: TextDecoration.lineThrough,
                             color: const Color(0xff868686),
                           ),
-                           SizedBox(
+                          SizedBox(
                             width: 5.h,
                           ),
                           CustomText(
@@ -131,13 +131,13 @@ class LatestItemDetails extends StatelessWidget {
                           ),
                         ],
                       ),
-                       SizedBox(
+                      SizedBox(
                         height: 10.h,
                       ),
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           backgroundColor: const Color(0xff159d6d),
-                          fixedSize:  Size(150.w, 40.h),
+                          fixedSize: Size(150.w, 40.h),
                         ),
                         onPressed: () {},
                         child: Row(

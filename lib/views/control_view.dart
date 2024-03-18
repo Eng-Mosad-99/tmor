@@ -29,28 +29,28 @@ GetBuilder<ControlViewModel> buttomNavigationBar() {
   return GetBuilder<ControlViewModel>(
     builder: (controller) => BottomNavigationBar(
       unselectedItemColor: Colors.grey[400],
-      items: const [
+      items: [
         BottomNavigationBarItem(
-          label: 'home',
-          icon: Icon(
+          label: 'Home'.tr,
+          icon: const Icon(
             Icons.home,
           ),
         ),
         BottomNavigationBarItem(
-          label: 'categories',
-          icon: Icon(
+          label: 'Categories'.tr,
+          icon: const Icon(
             Icons.category,
           ),
         ),
         BottomNavigationBarItem(
-          label: 'favorites',
-          icon: Icon(
+          label: 'Favorites'.tr,
+          icon: const Icon(
             Icons.favorite,
           ),
         ),
         BottomNavigationBarItem(
-          label: 'more',
-          icon: Icon(
+          label: 'More'.tr,
+          icon: const Icon(
             Icons.more_horiz,
           ),
         ),

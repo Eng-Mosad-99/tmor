@@ -127,7 +127,7 @@ class HomeView extends GetWidget<HomeViewModel> {
                       CustomText(
                         text: 'FEATURED ITEMS'.tr,
                         fontWeight: FontWeight.bold,
-                        fontSize: 16.sp,
+                        fontSize: 18.sp,
                       ),
                       const Spacer(),
                       GestureDetector(
@@ -458,6 +458,7 @@ class HomeView extends GetWidget<HomeViewModel> {
                       ),
                     ],
                   );
+                
                 },
                 itemCount: controller.getCategoryproductsInHome.length,
               ),

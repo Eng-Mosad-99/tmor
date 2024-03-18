@@ -32,4 +32,8 @@ const Map<String, String> ar = {
   'Hi Guest!': 'مرحبا بالزائر',
   'Sign in to continue': 'تسجيل الدخول للمتابعة',
   'Usage Policy': 'سياسة الاستخدام',
+  'Home': 'الرئيسية',
+  'Categories': 'المنتجات',
+  'Favorites': 'المفضلة',
+  'More': 'المزيد',
 };

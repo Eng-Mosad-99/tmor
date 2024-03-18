@@ -49,11 +49,11 @@ class _PageViewSliderState extends State<PageViewSlider> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 185.h,
+      height: 170.h,
       child: Column(
         children: [
           SizedBox(
-            height: 180.h,
+            height: 155.h,
             child: PageView(
               controller: _pageController,
               onPageChanged: (int page) {
@@ -69,7 +69,7 @@ class _PageViewSliderState extends State<PageViewSlider> {
                   child: Image.asset(
                     'assets/images/logo.png',
                     fit: BoxFit.fill,
-                    height: 165.w,
+                    height: 145.w,
                   ),
                 ),
                 Container(
@@ -78,7 +78,7 @@ class _PageViewSliderState extends State<PageViewSlider> {
                   ),
                   child: Image.asset(
                     'assets/images/logo.png',
-                    height: 165.w,
+                    height: 145.w,
                     fit: BoxFit.fill,
                   ),
                 ),
@@ -88,12 +88,15 @@ class _PageViewSliderState extends State<PageViewSlider> {
                   ),
                   child: Image.asset(
                     'assets/images/logo.png',
-                    height: 170.w,
-                    fit: BoxFit.cover,
+                    height: 145.w,
+                    fit: BoxFit.fill,
                   ),
                 ),
               ],
             ),
+          ),
+          SizedBox(
+            height: 10.h,
           ),
           Align(
             alignment: Alignment.centerLeft,
@@ -102,7 +105,7 @@ class _PageViewSliderState extends State<PageViewSlider> {
               count: 3,
               effect: ScrollingDotsEffect(
                 dotHeight: 3.5.h,
-                dotWidth: 50.w,
+                dotWidth: 55.w,
                 activeDotColor: Colors.green,
               ),
             ),

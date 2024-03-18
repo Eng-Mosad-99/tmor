@@ -32,4 +32,8 @@ const Map<String, String> en = {
   'Hi Guest!': 'Hi Guest!',
   'Sign in to continue': 'Sign in to continue',
   'Usage Policy': 'Usage Policy',
+  'Home': 'Home',
+  'Categories': 'Categories',
+  'Favorites': 'Favorites',
+  'More': 'More',
 };
