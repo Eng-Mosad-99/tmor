@@ -44,6 +44,7 @@ dependencies:
   http: ^0.13.6
   path: ^1.8.2
   shared_preferences: ^2.2.2
+  smooth_page_indicator: ^1.1.0
   sqflite: ^2.2.8+4
 flutter_native_splash:
   background_image: "assets/images/splash.png"
