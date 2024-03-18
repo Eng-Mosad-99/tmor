@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../core/view_model/home_view_model.dart';
@@ -18,11 +19,11 @@ class TmorItemSection extends StatelessWidget {
             CustomText(
               text: 'TMOR'.tr,
               fontWeight: FontWeight.bold,
-              fontSize: 16,
+              fontSize: 16.sp,
             ),
             const Spacer(),
             CircleAvatar(
-              radius: 20,
+              radius: 20.sp,
               backgroundColor: const Color(0xffe8f9f1),
               child: IconButton(
                 onPressed: () {},
@@ -34,34 +35,34 @@ class TmorItemSection extends StatelessWidget {
             ),
           ],
         ),
-        const SizedBox(
-          height: 10,
+         SizedBox(
+          height: 10.sp,
         ),
         GetBuilder<HomeViewModel>(
           init: HomeViewModel(),
           builder: (controller) {
             return SizedBox(
-              height: 290,
+              height: 290.h,
               child: ListView.separated(
-                separatorBuilder: (context, index) => const SizedBox(
-                  width: 10,
+                separatorBuilder: (context, index) =>  SizedBox(
+                  width: 10.w,
                 ),
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) => SizedBox(
-                  height: 285,
+                  height: 285.h,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(
-                        width: 150,
-                        height: 180,
+                        width: 150.w,
+                        height: 180.h,
                         child: Stack(
                           children: [
                             Container(
                               width: double.infinity,
                               height: double.infinity,
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(16),
+                                borderRadius: BorderRadius.circular(16.sp),
                                 image: const DecorationImage(
                                   image: NetworkImage(
                                     'https://tmormadina.com/api/uploads/categories/3d11ef1729.png',
@@ -74,23 +75,23 @@ class TmorItemSection extends StatelessWidget {
                             Align(
                               alignment: Alignment.bottomCenter,
                               child: Container(
-                                padding: const EdgeInsets.all(8.0),
+                                padding:  EdgeInsets.all(8.0.sp),
                                 margin:
-                                    const EdgeInsets.symmetric(horizontal: 8),
-                                decoration: const BoxDecoration(
+                                     EdgeInsets.symmetric(horizontal: 8.sp),
+                                decoration:  BoxDecoration(
                                   borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(10),
-                                    topRight: Radius.circular(10),
+                                    topLeft: Radius.circular(10.sp),
+                                    topRight: Radius.circular(10.sp),
                                   ),
-                                  color: Color(0xfffeeeef),
+                                  color:const Color(0xfffeeeef),
                                 ),
                                 width: double.infinity,
-                                child: const Text(
+                                child:  Text(
                                   '5.9 % Discount',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                     color: Colors.red,
-                                    fontSize: 14,
+                                    fontSize: 14.sp,
                                   ),
                                 ),
                               ),
@@ -98,50 +99,50 @@ class TmorItemSection extends StatelessWidget {
                           ],
                         ),
                       ),
-                      const SizedBox(
-                        height: 5,
+                       SizedBox(
+                        height: 5.h,
                       ),
                       SizedBox(
-                        width: 150,
+                        width: 150.w,
                         child: CustomText(
                           text: 'DATA'.tr,
                           // controller.getCategoryproductsInHome[index]
                           //     .productsList[index].name,
                           alignment: Alignment.center,
                           maxLines: 1,
-                          fontSize: 13,
+                          fontSize: 13.sp,
                           color: const Color(0xff39785c),
                         ),
                       ),
-                      const SizedBox(
-                        height: 5,
+                       SizedBox(
+                        height: 5.h,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.start,
-                        children: const [
+                        children:  [
                           CustomText(
                             text: '140.00 SAR',
-                            fontSize: 14,
+                            fontSize: 14.sp,
                             decoration: TextDecoration.lineThrough,
-                            color: Color(0xff868686),
+                            color:const Color(0xff868686),
                           ),
                           SizedBox(
-                            width: 5,
+                            width: 5.w,
                           ),
                           CustomText(
                             text: '120.00 SAR',
-                            fontSize: 14,
-                            color: Color.fromARGB(255, 234, 57, 48),
+                            fontSize: 14.sp,
+                            color:const Color.fromARGB(255, 234, 57, 48),
                           ),
                         ],
                       ),
-                      const SizedBox(
-                        height: 16,
+                       SizedBox(
+                        height: 16.h,
                       ),
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           backgroundColor: const Color(0xff159d6d),
-                          fixedSize: const Size(150, 40),
+                          fixedSize:  Size(150.w, 40.h),
                         ),
                         onPressed: () {},
                         child: Row(
@@ -150,7 +151,7 @@ class TmorItemSection extends StatelessWidget {
                             CustomText(
                               text: 'Add To Cart'.tr,
                               color: Colors.white,
-                              fontSize: 16,
+                              fontSize: 16.sp,
                             ),
                             const Icon(
                               Icons.shopping_cart,

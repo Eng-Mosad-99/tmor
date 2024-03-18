@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class PageViewSlider extends StatefulWidget {
@@ -48,11 +49,11 @@ class _PageViewSliderState extends State<PageViewSlider> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 165,
+      height: 165.h,
       child: Column(
         children: [
           SizedBox(
-            height: 150,
+            height: 150.h,
             child: PageView(
               controller: _pageController,
               onPageChanged: (int page) {
@@ -63,7 +64,7 @@ class _PageViewSliderState extends State<PageViewSlider> {
               children: [
                 Container(
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(16),
+                    borderRadius: BorderRadius.circular(16.sp),
                   ),
                   child: Image.asset(
                     'assets/images/logo.png',
@@ -72,7 +73,7 @@ class _PageViewSliderState extends State<PageViewSlider> {
                 ),
                 Container(
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(16),
+                    borderRadius: BorderRadius.circular(16.sp),
                   ),
                   child: Image.asset(
                     'assets/images/logo.png',
@@ -81,7 +82,7 @@ class _PageViewSliderState extends State<PageViewSlider> {
                 ),
                 Container(
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(16),
+                    borderRadius: BorderRadius.circular(16.sp),
                   ),
                   child: Image.asset(
                     'assets/images/logo.png',
@@ -96,9 +97,9 @@ class _PageViewSliderState extends State<PageViewSlider> {
             child: SmoothPageIndicator(
               controller: _pageController,
               count: 3,
-              effect: const ScrollingDotsEffect(
-                dotHeight: 3,
-                dotWidth: 50,
+              effect:  ScrollingDotsEffect(
+                dotHeight: 3.h,
+                dotWidth: 50.w,
                 activeDotColor: Colors.green,
               ),
             ),

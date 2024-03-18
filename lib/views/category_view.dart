@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:tmor/constants.dart';
 import 'package:tmor/core/view_model/home_view_model.dart';
@@ -36,9 +37,9 @@ class CategoryView extends StatelessWidget {
         ],
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 16,
-          vertical: 10,
+        padding:  EdgeInsets.symmetric(
+          horizontal: 16.sp,
+          vertical: 10.sp,
         ),
         child: Column(
           children: [
@@ -55,11 +56,11 @@ class CategoryView extends StatelessWidget {
                     return Column(
                       children: [
                         Container(
-                          margin: const EdgeInsets.only(top: 10),
-                          width: 75,
-                          height: 75,
+                          margin:  EdgeInsets.only(top: 10.sp),
+                          width: 75.w,
+                          height: 75.h,
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
+                            borderRadius: BorderRadius.circular(10.sp),
                             image: DecorationImage(
                               image: NetworkImage(
                                 '$categoryImagePath${controller.categories[index].img}',
@@ -70,7 +71,7 @@ class CategoryView extends StatelessWidget {
                         ),
                         CustomText(
                           text: controller.categories[index].name,
-                          fontSize: 14,
+                          fontSize: 14.sp,
                           maxLines: 1,
                           alignment: Alignment.center,
                         ),

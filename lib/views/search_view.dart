@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SearchView extends StatelessWidget {
   const SearchView({super.key});
@@ -8,14 +9,14 @@ class SearchView extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(40),
+          preferredSize:  Size.fromHeight(40.sp),
           child: AppBar(
             backgroundColor: Colors.white,
             elevation: 0,
-            title: const Text(
+            title:  Text(
               'Search',
               style: TextStyle(
-                fontSize: 16,
+                fontSize: 16.sp,
               ),
             ),
             centerTitle: true,
@@ -30,7 +31,7 @@ class SearchView extends StatelessWidget {
                   Icons.search,
                 ),
                 border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(16),
+                  borderRadius: BorderRadius.circular(16.sp),
                 ),
               ),
             ),

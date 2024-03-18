@@ -3,6 +3,7 @@
 import 'package:country_list_pick/country_list_pick.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:tmor/core/view_model/auth_view_model.dart';
 import 'package:tmor/views/widgets/custom_elevated_button.dart';
@@ -38,11 +39,11 @@ class ForgetPasswordView extends GetWidget<AuthViewModel> {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.only(
-          left: 20,
-          right: 20,
-          bottom: 50,
-          top: 150,
+        padding:  EdgeInsets.only(
+          left: 20.sp,
+          right: 20.sp,
+          bottom: 50.sp,
+          top: 150.sp,
         ),
         child: Form(
           key: formKey,
@@ -51,12 +52,12 @@ class ForgetPasswordView extends GetWidget<AuthViewModel> {
               Text(
                 'Enter the email address associated with your account , Click to have a password reset link e-mailed to you'
                     .tr,
-                style: const TextStyle(
-                  height: 2,
+                style:  TextStyle(
+                  height: 2.h,
                 ),
               ),
-              const SizedBox(
-                height: 20,
+               SizedBox(
+                height: 20.h,
               ),
               CustomTextFormField(
                 keyboardType: TextInputType.phone,

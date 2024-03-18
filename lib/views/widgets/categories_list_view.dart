@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_state_manager/src/simple/get_state.dart';
 import '../../constants.dart';
 import '../../core/view_model/home_view_model.dart';
@@ -12,31 +13,31 @@ class CategoriesListView extends StatelessWidget {
     return GetBuilder<HomeViewModel>(
       init: HomeViewModel(),
       builder: (controller) => SizedBox(
-        height: 103,
+        height: 103.h,
         child: ListView.separated(
-          separatorBuilder: (context, index) => const SizedBox(
-            width: 10,
+          separatorBuilder: (context, index) =>  SizedBox(
+            width: 10.w,
           ),
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) => Column(
             children: [
               SizedBox(
-                width: 75,
+                width: 75.w,
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(16),
+                  borderRadius: BorderRadius.circular(16.sp),
                   child: Image.network(
                     '$categoryImagePath${controller.categories[index].img}',
-                    height: 75,
-                    width: 50,
+                    height: 75.h,
+                    width: 50.w,
                     fit: BoxFit.fill,
                   ),
                 ),
               ),
               SizedBox(
-                width: 75,
+                width: 75.w,
                 child: CustomText(
                   text: controller.categories[index].name,
-                  fontSize: 14,
+                  fontSize: 14.sp,
                   maxLines: 1,
                 ),
               ),

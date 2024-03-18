@@ -19,7 +19,7 @@ class TmorApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-        designSize: const Size(360, 690),
+        designSize: const Size(375, 667),
         minTextAdapt: true,
         splitScreenMode: true,
         builder: (context, child) {

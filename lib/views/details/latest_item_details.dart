@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:tmor/core/view_model/home_view_model.dart';
 import 'package:tmor/views/widgets/custom_text.dart';
@@ -40,14 +41,14 @@ class LatestItemDetails extends StatelessWidget {
       body: GetBuilder<HomeViewModel>(
         init: HomeViewModel(),
         builder: (controller) => Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding:  EdgeInsets.all(8.0.sp),
           child: CustomScrollView(
             slivers: [
               SliverGrid(
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
-                  crossAxisSpacing: 10,
-                  mainAxisSpacing: 10,
+                  crossAxisSpacing: 10.sp,
+                  mainAxisSpacing: 10.sp,
                 ),
                 delegate: SliverChildBuilderDelegate(
                   (context, index) => Column(
@@ -57,10 +58,10 @@ class LatestItemDetails extends StatelessWidget {
                         alignment: Alignment.bottomCenter,
                         children: [
                           Container(
-                            width: 160,
-                            height: 64,
+                            width: 160.w,
+                            height: 64.h,
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
+                              borderRadius: BorderRadius.circular(10.sp),
                               image: DecorationImage(
                                 image: NetworkImage(
                                   '$productsImagePath${controller.latestitemProducts[index].image}',
@@ -73,22 +74,22 @@ class LatestItemDetails extends StatelessWidget {
                             alignment: Alignment.bottomCenter,
                             child: Container(
                               width: double.infinity,
-                              padding: const EdgeInsets.all(8),
-                              margin: const EdgeInsets.symmetric(
-                                horizontal: 10,
+                              padding:  EdgeInsets.all(8.sp),
+                              margin:  EdgeInsets.symmetric(
+                                horizontal: 10.sp,
                               ),
-                              decoration: const BoxDecoration(
+                              decoration:  BoxDecoration(
                                 borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(10),
-                                  topRight: Radius.circular(10),
+                                  topLeft: Radius.circular(10.sp),
+                                  topRight: Radius.circular(10.sp),
                                 ),
-                                color: Color(0xfffeeeef),
+                                color:const Color(0xfffeeeef),
                               ),
-                              child: const Text(
+                              child:  Text(
                                 '5.9 % Discount',
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
-                                  fontSize: 14,
+                                  fontSize: 14.sp,
                                   color: Colors.red,
                                 ),
                               ),
@@ -96,18 +97,18 @@ class LatestItemDetails extends StatelessWidget {
                           ),
                         ],
                       ),
-                      const SizedBox(
-                        height: 5,
+                       SizedBox(
+                        height: 5.h,
                       ),
                       CustomText(
                         text: controller.latestitemProducts[index].name.tr,
                         alignment: Alignment.center,
                         maxLines: 1,
-                        fontSize: 13,
+                        fontSize: 13.sp,
                         color: const Color(0xff39785c),
                       ),
-                      const SizedBox(
-                        height: 5,
+                       SizedBox(
+                        height: 5.h,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -115,28 +116,28 @@ class LatestItemDetails extends StatelessWidget {
                           CustomText(
                             text:
                                 '${controller.latestitemProducts[index].priceBeforeDiscount} SAR',
-                            fontSize: 14,
+                            fontSize: 14.sp,
                             decoration: TextDecoration.lineThrough,
                             color: const Color(0xff868686),
                           ),
-                          const SizedBox(
-                            width: 5,
+                           SizedBox(
+                            width: 5.h,
                           ),
                           CustomText(
                             text:
                                 '${controller.latestitemProducts[index].price} SAR',
-                            fontSize: 14,
+                            fontSize: 14.sp,
                             color: const Color.fromARGB(255, 234, 57, 48),
                           ),
                         ],
                       ),
-                      const SizedBox(
-                        height: 10,
+                       SizedBox(
+                        height: 10.h,
                       ),
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           backgroundColor: const Color(0xff159d6d),
-                          fixedSize: const Size(150, 40),
+                          fixedSize:  Size(150.w, 40.h),
                         ),
                         onPressed: () {},
                         child: Row(
@@ -145,7 +146,7 @@ class LatestItemDetails extends StatelessWidget {
                             CustomText(
                               text: 'Add To Cart'.tr,
                               color: Colors.white,
-                              fontSize: 16,
+                              fontSize: 16.sp,
                             ),
                             const Icon(
                               Icons.shopping_cart,

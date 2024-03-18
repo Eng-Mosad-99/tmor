@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:tmor/views/search_view.dart';
 
@@ -16,11 +17,11 @@ class CustomSearchTextField extends StatelessWidget {
         Get.to(() => const SearchView());
       },
       child: Container(
-        height: 50,
-        padding: const EdgeInsets.symmetric(horizontal: 15),
+        height: 50.h,
+        padding:  EdgeInsets.symmetric(horizontal: 15.sp),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(
-            10,
+            10.sp,
           ),
           border: Border.all(
             color: Colors.black,
@@ -32,12 +33,12 @@ class CustomSearchTextField extends StatelessWidget {
               Icons.search,
               size: 28,
             ),
-            const SizedBox(
-              width: 10,
+             SizedBox(
+              width: 10.w,
             ),
             CustomText(
               text: 'Search product'.tr,
-              fontSize: 16,
+              fontSize: 16.sp,
               color: const Color(0xff929292),
             ),
           ],

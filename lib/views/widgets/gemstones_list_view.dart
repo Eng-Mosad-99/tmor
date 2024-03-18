@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import '../../core/view_model/home_view_model.dart';
 import 'custom_text.dart';
@@ -14,13 +15,13 @@ class GemStonesGridView extends StatelessWidget {
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10),
           child: SizedBox(
-            height: 505,
+            height: 505.h,
             child: GridView.builder(
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
-                childAspectRatio: 1.5,
-                crossAxisSpacing: 10,
-                mainAxisSpacing: 10,
+                childAspectRatio: 1.5.sp,
+                crossAxisSpacing: 10.sp,
+                mainAxisSpacing: 10.sp,
               ),
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) => Column(
@@ -30,10 +31,10 @@ class GemStonesGridView extends StatelessWidget {
                     alignment: Alignment.bottomCenter,
                     children: [
                       Container(
-                        width: 180,
-                        height: 150,
+                        width: 180.w,
+                        height: 150.h,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
+                          borderRadius: BorderRadius.circular(10.sp),
                           image: const DecorationImage(
                             image: NetworkImage(
                               'https://tmormadina.com/api/uploads/categories/3d11ef1729.png',
@@ -47,20 +48,20 @@ class GemStonesGridView extends StatelessWidget {
                         alignment: Alignment.bottomCenter,
                         child: Container(
                           width: double.infinity,
-                          padding: const EdgeInsets.all(8),
-                          margin: const EdgeInsets.symmetric(horizontal: 10),
-                          decoration: const BoxDecoration(
+                          padding: EdgeInsets.all(8.sp),
+                          margin: EdgeInsets.symmetric(horizontal: 10.sp),
+                          decoration: BoxDecoration(
                             borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(10),
-                              topRight: Radius.circular(10),
+                              topLeft: Radius.circular(10.sp),
+                              topRight: Radius.circular(10.sp),
                             ),
-                            color: Color(0xfffeeeef),
+                            color: const Color(0xfffeeeef),
                           ),
-                          child: const Text(
+                          child: Text(
                             '5.9 % Discount',
                             textAlign: TextAlign.center,
                             style: TextStyle(
-                              fontSize: 14,
+                              fontSize: 14.sp,
                               color: Colors.red,
                             ),
                           ),
@@ -68,45 +69,45 @@ class GemStonesGridView extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const SizedBox(
-                    height: 5,
+                  SizedBox(
+                    height: 5.h,
                   ),
                   CustomText(
                     text: 'DATA'.tr,
                     alignment: Alignment.center,
                     maxLines: 1,
-                    fontSize: 13,
+                    fontSize: 13.sp,
                     color: const Color(0xff39785c),
                   ),
-                  const SizedBox(
-                    height: 5,
+                  SizedBox(
+                    height: 5.h,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
-                    children: const [
+                    children: [
                       CustomText(
                         text: '140.00 SAR',
-                        fontSize: 14,
+                        fontSize: 14.sp,
                         decoration: TextDecoration.lineThrough,
-                        color: Color(0xff868686),
+                        color: const Color(0xff868686),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 5,
                       ),
                       CustomText(
                         text: '130.00 SAR',
-                        fontSize: 14,
-                        color: Color.fromARGB(255, 234, 57, 48),
+                        fontSize: 14.sp,
+                        color: const Color.fromARGB(255, 234, 57, 48),
                       ),
                     ],
                   ),
-                  const SizedBox(
-                    height: 10,
+                   SizedBox(
+                    height: 10.h,
                   ),
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xff159d6d),
-                      fixedSize: const Size(150, 40),
+                      fixedSize:  Size(150.w, 40.h),
                     ),
                     onPressed: () {},
                     child: Row(
@@ -115,7 +116,7 @@ class GemStonesGridView extends StatelessWidget {
                         CustomText(
                           text: 'Add To Cart'.tr,
                           color: Colors.white,
-                          fontSize: 16,
+                          fontSize: 16.sp,
                         ),
                         const Icon(
                           Icons.shopping_cart,

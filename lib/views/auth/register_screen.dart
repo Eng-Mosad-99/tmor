@@ -3,6 +3,7 @@
 import 'package:country_list_pick/country_list_pick.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:tmor/core/view_model/auth_view_model.dart';
 import 'package:tmor/views/widgets/custom_elevated_button.dart';
@@ -30,14 +31,14 @@ class RegisterView extends GetWidget<AuthViewModel> {
               key: formKey,
               child: Column(
                 children: [
-                  const Text(
+                   Text(
                     'Sign Up',
                     style: TextStyle(
-                      fontSize: 24,
+                      fontSize: 24.sp,
                     ),
                   ),
-                  const SizedBox(
-                    height: 15,
+                   SizedBox(
+                    height: 15.h,
                   ),
                   CustomTextFormField(
                     hntText: 'full Name'.tr,
@@ -49,8 +50,8 @@ class RegisterView extends GetWidget<AuthViewModel> {
                       }
                     },
                   ),
-                  const SizedBox(
-                    height: 15,
+                   SizedBox(
+                    height: 15.h,
                   ),
                   CustomTextFormField(
                     hntText: 'email'.tr,
@@ -70,8 +71,8 @@ class RegisterView extends GetWidget<AuthViewModel> {
                       return null;
                     },
                   ),
-                  const SizedBox(
-                    height: 15,
+                   SizedBox(
+                    height: 15.h,
                   ),
                   CustomTextFormField(
                     hntText: 'mobile'.tr,
@@ -100,8 +101,8 @@ class RegisterView extends GetWidget<AuthViewModel> {
                       },
                     ),
                   ),
-                  const SizedBox(
-                    height: 15,
+                   SizedBox(
+                    height: 15.h,
                   ),
                   Obx(
                     () => CustomTextFormField(
@@ -137,8 +138,8 @@ class RegisterView extends GetWidget<AuthViewModel> {
                       keyboardType: TextInputType.visiblePassword,
                     ),
                   ),
-                  const SizedBox(
-                    height: 15,
+                   SizedBox(
+                    height: 15.h,
                   ),
                   CustomTextFormField(
                     hntText: 'confirm password'.tr,
@@ -171,8 +172,8 @@ class RegisterView extends GetWidget<AuthViewModel> {
                       confirmPasswordController.text = value!;
                     },
                   ),
-                  const SizedBox(
-                    height: 15,
+                   SizedBox(
+                    height: 15.h,
                   ),
                   CustomElevatedButton(
                     onPressed: () async {

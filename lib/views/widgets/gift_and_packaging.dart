@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import 'custom_text.dart';
@@ -18,11 +19,11 @@ class GiftAndPackagingSection extends StatelessWidget {
             CustomText(
               text: 'Gift And Packaging'.tr,
               fontWeight: FontWeight.bold,
-              fontSize: 16,
+              fontSize: 16.sp,
             ),
             const Spacer(),
             CircleAvatar(
-              radius: 20,
+              radius: 20.sp,
               backgroundColor: const Color(0xffe8f9f1),
               child: IconButton(
                 onPressed: () {},
@@ -34,8 +35,8 @@ class GiftAndPackagingSection extends StatelessWidget {
             ),
           ],
         ),
-        const SizedBox(
-          height: 10,
+         SizedBox(
+          height: 10.h,
         ),
         const GiftAndPackagingListView(),
       ],

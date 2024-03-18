@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // ignore: must_be_immutable
 class CustomTextFormField extends StatelessWidget {
@@ -47,7 +48,7 @@ class CustomTextFormField extends StatelessWidget {
 OutlineInputBorder buildBorder([color]) {
   return OutlineInputBorder(
     borderRadius: BorderRadius.circular(
-      10,
+      10.sp,
     ),
   );
 }

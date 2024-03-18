@@ -1,6 +1,7 @@
 import 'package:country_list_pick/country_list_pick.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:tmor/core/view_model/app_language.dart';
 import 'package:tmor/core/view_model/auth_view_model.dart';
@@ -27,27 +28,27 @@ class LoginView extends GetWidget<AuthViewModel> {
           backgroundColor: const Color(0xffffffff),
           body: SingleChildScrollView(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+              padding:  EdgeInsets.symmetric(horizontal: 20.sp, vertical: 20.sp),
               child: Form(
                 key: formKey,
                 child: Column(
                   children: [
                     Text(
                       'Login'.tr,
-                      style: const TextStyle(
-                        fontSize: 24,
+                      style:  TextStyle(
+                        fontSize: 24.sp,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
-                    const SizedBox(
-                      height: 10,
+                     SizedBox(
+                      height: 10.h,
                     ),
                     Image.asset(
                       'assets/images/logo.png',
-                      width: 200,
+                      width: 200.w,
                     ),
-                    const SizedBox(
-                      height: 20,
+                     SizedBox(
+                      height: 20.h,
                     ),
                     CustomTextFormField(
                       keyboardType: TextInputType.phone,
@@ -97,8 +98,8 @@ class LoginView extends GetWidget<AuthViewModel> {
                           // name of country
                           ),
                     ),
-                    const SizedBox(
-                      height: 20,
+                     SizedBox(
+                      height: 20.h,
                     ),
                     Obx(
                       () => CustomTextFormField(
@@ -135,8 +136,8 @@ class LoginView extends GetWidget<AuthViewModel> {
                         keyboardType: TextInputType.visiblePassword,
                       ),
                     ),
-                    const SizedBox(
-                      height: 20,
+                     SizedBox(
+                      height: 20.h,
                     ),
                     Container(
                       alignment: Alignment.centerLeft,
@@ -147,13 +148,13 @@ class LoginView extends GetWidget<AuthViewModel> {
                         child: CustomText(
                           alignment: Alignment.centerLeft,
                           text: 'Forget Password ?'.tr,
-                          fontSize: 15,
+                          fontSize: 15.sp,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
                     ),
-                    const SizedBox(
-                      height: 20,
+                     SizedBox(
+                      height: 20.h,
                     ),
                     CustomElevatedButton(
                       onPressed: () async {
@@ -187,15 +188,15 @@ class LoginView extends GetWidget<AuthViewModel> {
                       backgroundColor: Colors.green,
                       textColor: Colors.white,
                     ),
-                    const SizedBox(
-                      height: 20,
+                     SizedBox(
+                      height: 20.h,
                     ),
                     CustomText(
                       text: 'Don\'t have an account ?'.tr,
-                      fontSize: 16,
+                      fontSize: 16.sp,
                     ),
-                    const SizedBox(
-                      height: 20,
+                     SizedBox(
+                      height: 20.h,
                     ),
                     CustomElevatedButton(
                       onPressed: () {
@@ -205,8 +206,8 @@ class LoginView extends GetWidget<AuthViewModel> {
                       backgroundColor: Colors.white,
                       textColor: Colors.green,
                     ),
-                    const SizedBox(
-                      height: 20,
+                     SizedBox(
+                      height: 20.h,
                     ),
                     MaterialButton(
                       onPressed: () {
@@ -214,23 +215,23 @@ class LoginView extends GetWidget<AuthViewModel> {
                       },
                       child: CustomText(
                         text: 'Skip'.tr,
-                        fontSize: 16,
+                        fontSize: 16.sp,
                         fontWeight: FontWeight.w700,
                       ),
                     ),
-                    const SizedBox(
-                      height: 10,
+                     SizedBox(
+                      height: 10.h,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         CustomText(
                           text: 'Change Language'.tr,
-                          fontSize: 16,
+                          fontSize: 16.sp,
                           fontWeight: FontWeight.w700,
                         ),
-                        const SizedBox(
-                          width: 10,
+                         SizedBox(
+                          width: 10.w,
                         ),
                         GetBuilder<AppLanguage>(
                           builder: (controller) => DropdownButton(

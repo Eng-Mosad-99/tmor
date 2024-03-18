@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:tmor/views/details/feature_items_details.dart';
 
@@ -19,11 +20,11 @@ class FeatureItemsSection extends StatelessWidget {
             CustomText(
               text: 'FEATURED ITEMS'.tr,
               fontWeight: FontWeight.bold,
-              fontSize: 16,
+              fontSize: 16.sp,
             ),
             const Spacer(),
             CircleAvatar(
-              radius: 20,
+              radius: 20.sp,
               backgroundColor: const Color(0xffe8f9f1),
               child: IconButton(
                 onPressed: () {
@@ -37,8 +38,8 @@ class FeatureItemsSection extends StatelessWidget {
             ),
           ],
         ),
-        const SizedBox(
-          height: 10,
+         SizedBox(
+          height: 10.h,
         ),
         const FeaturedListView(),
       ],

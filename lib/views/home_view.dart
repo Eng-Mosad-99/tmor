@@ -151,7 +151,7 @@ class HomeView extends GetWidget<HomeViewModel> {
                       ),
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (context, index) => SizedBox(
-                        height: 285,
+                        height: 285.h,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -164,7 +164,7 @@ class HomeView extends GetWidget<HomeViewModel> {
                                     width: double.infinity,
                                     height: double.infinity,
                                     decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(16),
+                                      borderRadius: BorderRadius.circular(16.sp),
                                       image: DecorationImage(
                                         image: NetworkImage(
                                           '$productsImagePath${controller.featuredProducts[index].image}',
@@ -179,12 +179,12 @@ class HomeView extends GetWidget<HomeViewModel> {
                                       padding: EdgeInsets.all(8.0.sp),
                                       margin: EdgeInsets.symmetric(
                                           horizontal: 8.sp),
-                                      decoration: const BoxDecoration(
+                                      decoration: BoxDecoration(
                                         borderRadius: BorderRadius.only(
-                                          topLeft: Radius.circular(10),
-                                          topRight: Radius.circular(10),
+                                          topLeft: Radius.circular(10.sp),
+                                          topRight: Radius.circular(10.sp),
                                         ),
-                                        color: Color(0xfffeeeef),
+                                        color: const Color(0xfffeeeef),
                                       ),
                                       width: double.infinity,
                                       child: Text(
@@ -325,7 +325,7 @@ class HomeView extends GetWidget<HomeViewModel> {
                                         height: double.infinity,
                                         decoration: BoxDecoration(
                                           borderRadius: BorderRadius.circular(
-                                            16,
+                                            16.sp,
                                           ),
                                           image: DecorationImage(
                                             image: NetworkImage(
@@ -344,12 +344,12 @@ class HomeView extends GetWidget<HomeViewModel> {
                                           margin: EdgeInsets.symmetric(
                                             horizontal: 8.sp,
                                           ),
-                                          decoration: const BoxDecoration(
+                                          decoration: BoxDecoration(
                                             borderRadius: BorderRadius.only(
-                                              topLeft: Radius.circular(10),
-                                              topRight: Radius.circular(10),
+                                              topLeft: Radius.circular(10.sp),
+                                              topRight: Radius.circular(10.sp),
                                             ),
-                                            color: Color(0xfffeeeef),
+                                            color: const Color(0xfffeeeef),
                                           ),
                                           width: double.infinity,
                                           child: Text(

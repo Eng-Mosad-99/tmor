@@ -27,4 +27,9 @@ const Map<String, String> en = {
   'Add To Cart': 'Add To Cart',
   'Gift And Packaging': 'Gift And Packaging',
   'Gemstones': 'Gemstones',
+  'Sign in': 'Sign in',
+  'Create an account': 'Create an account',
+  'Hi Guest!': 'Hi Guest!',
+  'Sign in to continue': 'Sign in to continue',
+  'Usage Policy': 'Usage Policy',
 };

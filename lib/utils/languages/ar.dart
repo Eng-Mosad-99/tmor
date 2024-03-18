@@ -27,4 +27,9 @@ const Map<String, String> ar = {
   'Add To Cart': 'اضافة الي السلة',
   'Gift And Packaging': 'الهدايا والتغليف',
   'Gemstones': 'الأحجار الكريمة والفضية',
+  'Sign in': 'تسجيل دخول',
+  'Create an account': 'تسجيل حساب جديد',
+  'Hi Guest!': 'مرحبا بالزائر',
+  'Sign in to continue': 'تسجيل الدخول للمتابعة',
+  'Usage Policy': 'سياسة الاستخدام',
 };
