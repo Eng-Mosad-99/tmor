@@ -27,14 +27,14 @@ class ProfileDetailView extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding:  EdgeInsets.symmetric(horizontal: 16.sp),
+        padding: EdgeInsets.symmetric(horizontal: 16.sp),
         child: Column(
           children: [
             Row(
               children: [
-                 Padding(
+                Padding(
                   padding: EdgeInsets.only(left: 16.sp),
-                  child:const CircleAvatar(
+                  child: const CircleAvatar(
                     backgroundColor: Color(0xff159d6d),
                     child: Icon(
                       Icons.person,
@@ -95,7 +95,7 @@ class ProfileDetailView extends StatelessWidget {
             Card(
               child: ListTile(
                 onTap: () {},
-                trailing:  Icon(
+                trailing: Icon(
                   Icons.arrow_forward_ios,
                   size: 22.sp,
                 ),
@@ -104,14 +104,14 @@ class ProfileDetailView extends StatelessWidget {
                   fontSize: 16.sp,
                   color: const Color(0xff3b3b3b),
                 ),
-                leading:  CircleAvatar(
+                leading: CircleAvatar(
                   radius: 25.sp,
-                  backgroundColor:const Color(0xffe6faf7),
+                  backgroundColor: const Color(0xffe6faf7),
                   child: CircleAvatar(
-                    backgroundColor:const Color(0xff159d6d),
+                    backgroundColor: const Color(0xff159d6d),
                     child: Center(
                       child: Image(
-                        image:const AssetImage(
+                        image: const AssetImage(
                           'assets/images/box.png',
                         ),
                         width: 25.w,

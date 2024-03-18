@@ -45,7 +45,7 @@ class HomeView extends GetWidget<HomeViewModel> {
               ),
               const PageViewSlider(),
               SizedBox(
-                height: 15.h,
+                height: 20.h,
               ),
               //// DiscoverCategoriesSection
               Column(
@@ -57,16 +57,21 @@ class HomeView extends GetWidget<HomeViewModel> {
                         fontWeight: FontWeight.bold,
                       ),
                       const Spacer(),
-                      CircleAvatar(
-                        radius: 20.sp,
-                        backgroundColor: const Color(0xffe8f9f1),
-                        child: IconButton(
-                          onPressed: () {
-                            Get.to(() => const DiscoverCategoriesItems());
-                          },
-                          icon: const Icon(
+                      GestureDetector(
+                        onTap: () {
+                          Get.to(() => const DiscoverCategoriesItems());
+                        },
+                        child: Container(
+                          width: 40.w,
+                          height: 30.h,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(100.sp),
+                            color: const Color(0xffe8f9f1),
+                          ),
+                          child: Icon(
                             Icons.arrow_forward_sharp,
                             color: Colors.green,
+                            size: 22.sp,
                           ),
                         ),
                       ),
@@ -76,7 +81,7 @@ class HomeView extends GetWidget<HomeViewModel> {
                     height: 10.h,
                   ),
                   SizedBox(
-                    height: 103.h,
+                    height: 100.h,
                     child: ListView.separated(
                       separatorBuilder: (context, index) => SizedBox(
                         width: 10.w,
@@ -85,13 +90,13 @@ class HomeView extends GetWidget<HomeViewModel> {
                       itemBuilder: (context, index) => Column(
                         children: [
                           SizedBox(
-                            width: 75.w,
+                            width: 80.w,
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(16),
                               child: Image.network(
                                 '$categoryImagePath${controller.categories[index].img}',
                                 height: 75.h,
-                                width: 50.w,
+                                width: 80.w,
                                 fit: BoxFit.fill,
                               ),
                             ),
@@ -125,16 +130,23 @@ class HomeView extends GetWidget<HomeViewModel> {
                         fontSize: 16.sp,
                       ),
                       const Spacer(),
-                      CircleAvatar(
-                        radius: 20.sp,
-                        backgroundColor: const Color(0xffe8f9f1),
-                        child: IconButton(
-                          onPressed: () {
-                            Get.to(() => const FeatureItemDetails());
-                          },
-                          icon: const Icon(
-                            Icons.arrow_forward_sharp,
-                            color: Colors.green,
+                      GestureDetector(
+                        onTap: () {
+                          Get.to(() => const FeatureItemDetails());
+                        },
+                        child: Container(
+                          width: 40.w,
+                          height: 30.h,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(100.sp),
+                            color: const Color(0xffe8f9f1),
+                          ),
+                          child: Center(
+                            child: Icon(
+                              Icons.arrow_forward_sharp,
+                              color: Colors.green,
+                              size: 22.sp,
+                            ),
                           ),
                         ),
                       ),
@@ -164,7 +176,8 @@ class HomeView extends GetWidget<HomeViewModel> {
                                     width: double.infinity,
                                     height: double.infinity,
                                     decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(16.sp),
+                                      borderRadius:
+                                          BorderRadius.circular(16.sp),
                                       image: DecorationImage(
                                         image: NetworkImage(
                                           '$productsImagePath${controller.featuredProducts[index].image}',
@@ -250,10 +263,12 @@ class HomeView extends GetWidget<HomeViewModel> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  CustomText(
-                                    text: 'Add To Cart'.tr,
-                                    color: Colors.white,
-                                    fontSize: 16.sp,
+                                  Expanded(
+                                    child: CustomText(
+                                      text: 'Add To Cart'.tr,
+                                      color: Colors.white,
+                                      fontSize: 16.sp,
+                                    ),
                                   ),
                                   const Icon(
                                     Icons.shopping_cart,
@@ -284,18 +299,20 @@ class HomeView extends GetWidget<HomeViewModel> {
                             text: controller
                                 .getCategoryproductsInHome[index].name,
                             fontWeight: FontWeight.bold,
-                            fontSize: 16.sp,
+                            fontSize: 18.sp,
                           ),
                           const Spacer(),
-                          CircleAvatar(
-                            radius: 20.sp,
-                            backgroundColor: const Color(0xffe8f9f1),
-                            child: IconButton(
-                              onPressed: () {},
-                              icon: const Icon(
-                                Icons.arrow_forward_sharp,
-                                color: Colors.green,
-                              ),
+                          Container(
+                            width: 40.w,
+                            height: 30.h,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(100.sp),
+                              color: const Color(0xffe8f9f1),
+                            ),
+                            child: Icon(
+                              Icons.arrow_forward_sharp,
+                              color: Colors.green,
+                              size: 22.sp,
                             ),
                           ),
                         ],
@@ -419,10 +436,12 @@ class HomeView extends GetWidget<HomeViewModel> {
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
-                                      CustomText(
-                                        text: 'Add To Cart'.tr,
-                                        color: Colors.white,
-                                        fontSize: 16.sp,
+                                      Expanded(
+                                        child: CustomText(
+                                          text: 'Add To Cart'.tr,
+                                          color: Colors.white,
+                                          fontSize: 16.sp,
+                                        ),
                                       ),
                                       const Icon(
                                         Icons.shopping_cart,

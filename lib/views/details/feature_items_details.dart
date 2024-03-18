@@ -85,7 +85,7 @@ class FeatureItemDetails extends StatelessWidget {
                                 ),
                                 color: const Color(0xfffeeeef),
                               ),
-                              child:  Text(
+                              child: Text(
                                 '5.9 % Discount',
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
@@ -97,7 +97,7 @@ class FeatureItemDetails extends StatelessWidget {
                           ),
                         ],
                       ),
-                       SizedBox(
+                      SizedBox(
                         height: 5.h,
                       ),
                       CustomText(
@@ -107,7 +107,7 @@ class FeatureItemDetails extends StatelessWidget {
                         fontSize: 13.sp,
                         color: const Color(0xff39785c),
                       ),
-                       SizedBox(
+                      SizedBox(
                         height: 5.h,
                       ),
                       Row(
@@ -120,7 +120,7 @@ class FeatureItemDetails extends StatelessWidget {
                             decoration: TextDecoration.lineThrough,
                             color: const Color(0xff868686),
                           ),
-                           SizedBox(
+                          SizedBox(
                             width: 5.w,
                           ),
                           CustomText(
@@ -131,13 +131,13 @@ class FeatureItemDetails extends StatelessWidget {
                           ),
                         ],
                       ),
-                       SizedBox(
+                      SizedBox(
                         height: 10.h,
                       ),
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           backgroundColor: const Color(0xff159d6d),
-                          fixedSize:  Size(150.w, 40.h),
+                          fixedSize: Size(150.w, 40.h),
                         ),
                         onPressed: () {},
                         child: Row(

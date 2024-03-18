@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:tmor/utils/translations.dart';
-import 'package:tmor/views/control_view.dart';
+import 'package:tmor/views/splash_view.dart';
 
 import 'helper/binding.dart';
 
@@ -19,7 +19,7 @@ class TmorApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-        designSize: const Size(375, 667),
+        designSize: const Size(407, 722),
         minTextAdapt: true,
         splitScreenMode: true,
         builder: (context, child) {
@@ -29,7 +29,7 @@ class TmorApp extends StatelessWidget {
             locale: Get.deviceLocale,
             fallbackLocale: const Locale('en'),
             debugShowCheckedModeBanner: false,
-            home: const ControlView(),
+            home: const SplashView(),
           );
         });
   }

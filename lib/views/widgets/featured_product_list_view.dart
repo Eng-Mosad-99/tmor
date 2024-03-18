@@ -16,7 +16,7 @@ class FeaturedListView extends StatelessWidget {
         return SizedBox(
           height: 290.h,
           child: ListView.separated(
-            separatorBuilder: (context, index) =>  SizedBox(
+            separatorBuilder: (context, index) => SizedBox(
               width: 10.w,
             ),
             scrollDirection: Axis.horizontal,
@@ -26,7 +26,7 @@ class FeaturedListView extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(
-                    width: 150.w,
+                    width: 160.w,
                     height: 180.h,
                     child: Stack(
                       children: [
@@ -46,17 +46,17 @@ class FeaturedListView extends StatelessWidget {
                         Align(
                           alignment: Alignment.bottomCenter,
                           child: Container(
-                            padding:  EdgeInsets.all(8.0.sp),
-                            margin:  EdgeInsets.symmetric(horizontal: 8.sp),
-                            decoration:  BoxDecoration(
+                            padding: EdgeInsets.all(8.0.sp),
+                            margin: EdgeInsets.symmetric(horizontal: 8.sp),
+                            decoration: BoxDecoration(
                               borderRadius: BorderRadius.only(
                                 topLeft: Radius.circular(10.sp),
                                 topRight: Radius.circular(10.sp),
                               ),
-                              color:const Color(0xfffeeeef),
+                              color: const Color(0xfffeeeef),
                             ),
                             width: double.infinity,
-                            child:  Text(
+                            child: Text(
                               '5.9 % Discount',
                               textAlign: TextAlign.center,
                               style: TextStyle(
@@ -69,7 +69,7 @@ class FeaturedListView extends StatelessWidget {
                       ],
                     ),
                   ),
-                   SizedBox(
+                  SizedBox(
                     height: 5.h,
                   ),
                   SizedBox(
@@ -82,7 +82,7 @@ class FeaturedListView extends StatelessWidget {
                       color: const Color(0xff39785c),
                     ),
                   ),
-                   SizedBox(
+                  SizedBox(
                     height: 5.h,
                   ),
                   Row(
@@ -95,7 +95,7 @@ class FeaturedListView extends StatelessWidget {
                         decoration: TextDecoration.lineThrough,
                         color: const Color(0xff868686),
                       ),
-                       SizedBox(
+                      SizedBox(
                         width: 5.w,
                       ),
                       CustomText(
@@ -105,13 +105,13 @@ class FeaturedListView extends StatelessWidget {
                       ),
                     ],
                   ),
-                   SizedBox(
+                  SizedBox(
                     height: 16.h,
                   ),
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xff159d6d),
-                      fixedSize:  Size(150.w, 40.h),
+                      fixedSize: Size(150.w, 40.h),
                     ),
                     onPressed: () {},
                     child: Row(

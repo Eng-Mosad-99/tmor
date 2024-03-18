@@ -22,22 +22,27 @@ class LatestItemsSection extends StatelessWidget {
               fontSize: 16.sp,
             ),
             const Spacer(),
-            CircleAvatar(
-              radius: 20.sp,
-              backgroundColor: const Color(0xffe8f9f1),
-              child: IconButton(
-                onPressed: () {
-                  Get.to(() => const LatestItemDetails());
-                },
-                icon: const Icon(
+            GestureDetector(
+              onTap: () {
+                Get.to(() => const LatestItemDetails());
+              },
+              child: Container(
+                width: 40.w,
+                height: 30.h,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(100.sp),
+                  color: const Color(0xffe8f9f1),
+                ),
+                child: Icon(
                   Icons.arrow_forward_sharp,
                   color: Colors.green,
+                  size: 22.sp,
                 ),
               ),
             ),
           ],
         ),
-         SizedBox(
+        SizedBox(
           height: 10.sp,
         ),
         const LatestItemListView(),

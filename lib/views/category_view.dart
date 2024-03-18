@@ -37,7 +37,7 @@ class CategoryView extends StatelessWidget {
         ],
       ),
       body: Padding(
-        padding:  EdgeInsets.symmetric(
+        padding: EdgeInsets.symmetric(
           horizontal: 16.sp,
           vertical: 10.sp,
         ),
@@ -56,7 +56,7 @@ class CategoryView extends StatelessWidget {
                     return Column(
                       children: [
                         Container(
-                          margin:  EdgeInsets.only(top: 10.sp),
+                          margin: EdgeInsets.only(top: 10.sp),
                           width: 75.w,
                           height: 75.h,
                           decoration: BoxDecoration(
