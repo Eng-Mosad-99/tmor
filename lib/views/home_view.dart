@@ -11,6 +11,8 @@ import 'package:tmor/views/widgets/most_view_products_section.dart';
 import 'package:tmor/views/widgets/page_view_builder.dart';
 import 'package:tmor/views/widgets/products_in_home_list_view.dart';
 
+import 'cart_view.dart';
+
 class HomeView extends GetWidget<HomeViewModel> {
   const HomeView({super.key});
   final List<double> featuresDiscount = const [5.9, 9.1, 0, 0, 17, 99, 20, 17];
@@ -18,47 +20,73 @@ class HomeView extends GetWidget<HomeViewModel> {
   Widget build(BuildContext context) {
     return GetBuilder<HomeViewModel>(
       init: HomeViewModel(),
-      builder: (controller) => Scaffold(
-        backgroundColor: const Color(0xffffffff),
-        appBar: AppBar(
-          backgroundColor: Colors.white,
-          elevation: 0,
-          title: Align(
-            alignment: Alignment.centerLeft,
-            child: CustomAppBar(
-              text: 'تمور المدينة',
-              fontWeight: FontWeight.bold,
-              fontSize: 24.sp,
+      builder: (controller) => SafeArea(
+        child: Scaffold(
+          backgroundColor: const Color(0xffffffff),
+          appBar: AppBar(
+            backgroundColor: Colors.white,
+            centerTitle: false, // Disable centering
+            titleSpacing: -40.0.sp,
+            elevation: 0,
+            title: Row(
+              children: [
+                Text(
+                  'تمور المدينة',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 20.sp,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
             ),
-          ),
-        ),
-        body: SingleChildScrollView(
-          padding: EdgeInsets.only(top: 20.sp, left: 20.sp, right: 20.sp),
-          child: Column(
-            children: [
-              const CustomSearchTextField(),
-              SizedBox(
-                height: 20.h,
+            actions: [
+              IconButton(
+                onPressed: () {},
+                icon: const Icon(
+                  Icons.notifications_none,
+                ),
+                color: Colors.black,
               ),
-              const PageViewSlider(),
-              SizedBox(
-                height: 20.h,
+              IconButton(
+                onPressed: () {
+                  Get.to(() => const CartView());
+                },
+                icon: const Icon(
+                  Icons.shopping_cart,
+                  color: Colors.black,
+                ),
               ),
-              const DicoverCategoriesListView(),
-              SizedBox(
-                height: 15.h,
-              ),
-              FeatureProductListView(featuresDiscount: featuresDiscount),
-              const ProductsInHomeListView(),
-              SizedBox(
-                height: 15.h,
-              ),
-              const LatestItemsSection(),
-              SizedBox(
-                height: 15.h,
-              ),
-              const MostViewsProductsSection(),
             ],
+          ),
+          body: SingleChildScrollView(
+            padding: EdgeInsets.only(top: 20.sp, left: 20.sp, right: 20.sp),
+            child: Column(
+              children: [
+                const CustomSearchTextField(),
+                SizedBox(
+                  height: 20.h,
+                ),
+                const PageViewSlider(),
+                SizedBox(
+                  height: 20.h,
+                ),
+                const DicoverCategoriesListView(),
+                SizedBox(
+                  height: 15.h,
+                ),
+                FeatureProductListView(featuresDiscount: featuresDiscount),
+                const ProductsInHomeListView(),
+                SizedBox(
+                  height: 15.h,
+                ),
+                const LatestItemsSection(),
+                SizedBox(
+                  height: 15.h,
+                ),
+                const MostViewsProductsSection(),
+              ],
+            ),
           ),
         ),
       ),

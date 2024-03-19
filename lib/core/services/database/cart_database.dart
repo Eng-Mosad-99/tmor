@@ -1,7 +1,6 @@
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:tmor/constants.dart';
-
 import '../../../models/cart_product_model.dart';
 
 class DataBaseHelper {

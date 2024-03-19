@@ -36,4 +36,6 @@ const Map<String, String> en = {
   'Categories': 'Categories',
   'Favorites': 'Favorites',
   'More': 'More',
+  'Cart': 'Cart',
+  'Quantity' : 'Quantity',
 };

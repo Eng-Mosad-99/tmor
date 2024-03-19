@@ -36,4 +36,6 @@ const Map<String, String> ar = {
   'Categories': 'المنتجات',
   'Favorites': 'المفضلة',
   'More': 'المزيد',
+  'Cart': 'السلة',
+  'Quantity': 'الكمية',
 };

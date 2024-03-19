@@ -26,7 +26,7 @@ class TmorApp extends StatelessWidget {
           return GetMaterialApp(
             initialBinding: Binding(),
             translations: Translation(),
-            locale: Get.deviceLocale,
+            locale: const Locale('en'),
             fallbackLocale: const Locale('en'),
             debugShowCheckedModeBanner: false,
             home: const SplashView(),
