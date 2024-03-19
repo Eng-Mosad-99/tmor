@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-
+import 'package:tmor/core/view_model/cart_view_model.dart';
+import 'package:tmor/models/cart_product_model.dart';
 import '../../constants.dart';
 import '../../core/view_model/home_view_model.dart';
 import '../../core/widgets/custom_arrow_icon.dart';
@@ -10,12 +11,11 @@ import '../details/feature_items_details.dart';
 import 'custom_text.dart';
 
 class FeatureProductListView extends StatelessWidget {
-  const FeatureProductListView({
-    super.key,
-    required this.featuresDiscount,
-  });
+  const FeatureProductListView(
+      {super.key, required this.featuresDiscount, this.cartProductModel});
 
   final List<double> featuresDiscount;
+  final CartProductModel? cartProductModel;
 
   @override
   Widget build(BuildContext context) {
@@ -127,7 +127,12 @@ class FeatureProductListView extends StatelessWidget {
                     SizedBox(
                       height: 16.h,
                     ),
-                    const CustomElevatedBottomAddToCart(),
+                    GetBuilder<CartViewModel>(
+                      init: CartViewModel(),
+                      builder: (controller) => CustomElevatedBottomAddToCart(
+                        onPressed: () {},
+                      ),
+                    ),
                   ],
                 ),
               ),

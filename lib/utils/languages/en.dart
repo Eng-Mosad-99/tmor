@@ -37,5 +37,8 @@ const Map<String, String> en = {
   'Favorites': 'Favorites',
   'More': 'More',
   'Cart': 'Cart',
-  'Quantity' : 'Quantity',
+  'Quantity': 'Quantity',
+  'Items Count': 'Items Count',
+  'Item': 'item',
+  'Total Price': 'Total Price',
 };

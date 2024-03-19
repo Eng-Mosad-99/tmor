@@ -3,13 +3,14 @@ import 'package:sqflite/sqflite.dart';
 import 'package:tmor/constants.dart';
 import '../../../models/cart_product_model.dart';
 
-class DataBaseHelper {
-  DataBaseHelper._();
-  static final DataBaseHelper dataBaseHelper = DataBaseHelper._();
+class CartDataBaseHelper {
+  CartDataBaseHelper._();
+  static final CartDataBaseHelper dataBaseHelper = CartDataBaseHelper._();
 
   // ignore: unused_field
   static Database? _database;
 
+// ده ال singleton
   Future<Database?> get database async {
     if (_database != null) return _database;
     _database = await initDB();
@@ -29,8 +30,7 @@ class DataBaseHelper {
     $columnImage TEXT NOT NULL,
     $columnPrice TEXT NOT NULL,
     $columnProductId TEXT NOT NULL,
-    $columnQuantity INTEGER NOT NULL,
-  )
+    $columnQuantity INTEGER NOT NULL)
 ''');
       },
     );
@@ -43,5 +43,14 @@ class DataBaseHelper {
     return maps.isNotEmpty
         ? maps.map((product) => CartProductModel.fromJson(product)).toList()
         : [];
+  }
+
+  insert(CartProductModel cartProductModel) async {
+    var dbClient = await database;
+    dbClient?.insert(
+      cartProductTable,
+      cartProductModel.toJson(),
+      conflictAlgorithm: ConflictAlgorithm.replace,
+    );
   }
 }

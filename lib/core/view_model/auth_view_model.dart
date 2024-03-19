@@ -53,7 +53,7 @@ class AuthViewModel extends GetxController {
         'email': email,
         'confirmPassword': confirmPassword,
       });
-      Map<String, dynamic> data = await API.post(
+      Map<String, dynamic> data = await API().post(
         file: 'users.php',
         action: 'userSignUp',
         body: {
@@ -91,7 +91,7 @@ class AuthViewModel extends GetxController {
       "mobile": countryCode + phone,
       "password": password,
     });
-    Map<String, dynamic> data = await API.post(
+    Map<String, dynamic> data = await API().post(
       file: 'users.php',
       action: 'userSignIn',
       body: {
@@ -133,7 +133,7 @@ class AuthViewModel extends GetxController {
       print({
         "value": countryCode + phone,
       });
-      Map<String, dynamic> data = await API.post(
+      Map<String, dynamic> data = await API().post(
         file: 'users.php',
         action: 'resetPassword',
         body: {

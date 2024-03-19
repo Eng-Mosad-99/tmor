@@ -6,18 +6,17 @@ import 'package:tmor/helper/local_storage_data.dart';
 import 'package:tmor/models/user_model.dart';
 
 class API {
-  static Future<Map<String, dynamic>> post({
+  Future<dynamic> post({
     required String file,
     required String action,
     required dynamic body,
   }) async {
-    Map<String, String> headers = {};
     http.Response response = await http.post(
       Uri.parse(
         '$baseURl/$file?action=$action',
       ),
       body: jsonEncode(body),
-      headers: headers,
+      headers: await header(),
     );
 
     if (response.statusCode == 200) {

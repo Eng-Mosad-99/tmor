@@ -1,32 +1,83 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 class CartProductModel {
-  final String image, name, price, productId;
-  int quantity;
-
+  final int totalDiscount, totalProductCount, totalPrice;
+  final List<ProductItems> productsList;
   CartProductModel({
-    required this.image,
-    required this.name,
-    required this.price,
-    required this.quantity,
-    required this.productId,
+    required this.totalPrice,
+    required this.productsList,
+    required this.totalProductCount,
+    required this.totalDiscount,
   });
 
   factory CartProductModel.fromJson(Map<String, dynamic> map) {
+    final List<dynamic> subCategoriesJson = map['product_items'] ?? [];
     return CartProductModel(
-      image: map['image'],
-      name: map['name'],
-      price: map['price'],
-      quantity: map['quantity'],
-      productId: map['productId'],
+      totalDiscount: map['total_discount'],
+      totalProductCount: map['total_product_count'],
+      totalPrice: map['total_price'],
+      productsList:
+          subCategoriesJson.map((e) => ProductItems.fromJSon(e)).toList(),
     );
   }
 
   toJson() {
     return {
-      'image': image,
-      'name': name,
+      'total_discount': totalDiscount,
+      'total_product_count': totalProductCount,
+      'total_price': totalPrice,
+      'product_items': productsList,
+    };
+  }
+}
+
+class ProductItems {
+  final String id;
+  final String price;
+  final String priceBeforeDiscount;
+  final String numberPiecesAvailable;
+  final String productWeight;
+  final String name;
+  final String img;
+  final String quantity;
+  final String cartId;
+
+  ProductItems({
+    required this.id,
+    required this.price,
+    required this.priceBeforeDiscount,
+    required this.numberPiecesAvailable,
+    required this.productWeight,
+    required this.name,
+    required this.img,
+    required this.quantity,
+    required this.cartId,
+  });
+
+  factory ProductItems.fromJSon(Map<String, dynamic> map) {
+    return ProductItems(
+      id: map['id'],
+      price: map['price'],
+      priceBeforeDiscount: map['price_before_discount'],
+      numberPiecesAvailable: map['number_pieces_available'],
+      productWeight: map['product_weight'],
+      name: map['name'],
+      img: map['img'],
+      quantity: map['quantity'],
+      cartId: map['cart_id'],
+    );
+  }
+
+  toJson() {
+    return {
+      'id': id,
       'price': price,
+      'price_before_discount': priceBeforeDiscount,
+      'number_pieces_available': numberPiecesAvailable,
+      'product_weight': productWeight,
+      'name': name,
+      'img': img,
       'quantity': quantity,
-      'productId': productId,
+      'cart_id': cartId,
     };
   }
 }

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:tmor/core/view_model/home_view_model.dart';
-import 'package:tmor/views/widgets/custom_app_bar.dart';
 import 'package:tmor/views/widgets/custom_search_text_field.dart';
 import 'package:tmor/views/widgets/discover_categories_listView.dart';
 import 'package:tmor/views/widgets/featured_product_list_view.dart';

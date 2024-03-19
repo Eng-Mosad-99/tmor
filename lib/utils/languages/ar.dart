@@ -38,4 +38,7 @@ const Map<String, String> ar = {
   'More': 'المزيد',
   'Cart': 'السلة',
   'Quantity': 'الكمية',
+  'Items Count': 'عدد العناصر',
+  'Item': 'عنصر',
+  'Total Price': 'تكلفة المنتجات',
 };

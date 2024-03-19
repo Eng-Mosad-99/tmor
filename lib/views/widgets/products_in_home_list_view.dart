@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:tmor/views/widgets/products_in_home_grid_view.dart';
 import '../../constants.dart';
 import '../../core/view_model/home_view_model.dart';
 import '../../core/widgets/custom_arrow_icon.dart';
@@ -139,7 +138,9 @@ class ProductsInHomeListView extends StatelessWidget {
                         SizedBox(
                           height: 16.h,
                         ),
-                        const CustomElevatedBottomAddToCart(),
+                        CustomElevatedBottomAddToCart(
+                          onPressed: () {},
+                        ),
                       ],
                     ),
                   ),
