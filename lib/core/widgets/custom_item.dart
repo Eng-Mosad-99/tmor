@@ -172,6 +172,6 @@ class CustomItem extends StatelessWidget {
         ),
       ],
     );
-    ;
+    
   }
 }

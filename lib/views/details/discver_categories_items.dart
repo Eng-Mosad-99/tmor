@@ -5,7 +5,6 @@ import 'package:tmor/constants.dart';
 import 'package:tmor/core/view_model/home_view_model.dart';
 import 'package:tmor/views/home_view.dart';
 import 'package:tmor/views/widgets/custom_text.dart';
-
 import '../widgets/custom_search_text_field.dart';
 
 class DiscoverCategoriesItems extends StatelessWidget {
@@ -38,7 +37,7 @@ class DiscoverCategoriesItems extends StatelessWidget {
         ],
       ),
       body: Padding(
-        padding:  EdgeInsets.symmetric(
+        padding: EdgeInsets.symmetric(
           horizontal: 16.sp,
           vertical: 10.sp,
         ),
@@ -47,7 +46,7 @@ class DiscoverCategoriesItems extends StatelessWidget {
             const CustomSearchTextField(),
             GetBuilder<HomeViewModel>(
               builder: (controller) => SizedBox(
-                height: MediaQuery.of(context).size.height * .76,
+                height: MediaQuery.of(context).size.height * .75,
                 child: GridView.builder(
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 3,
@@ -57,7 +56,7 @@ class DiscoverCategoriesItems extends StatelessWidget {
                     return Column(
                       children: [
                         Container(
-                          margin:  EdgeInsets.only(top: 10.sp),
+                          margin: EdgeInsets.only(top: 10.sp),
                           width: 75.w,
                           height: 75.h,
                           decoration: BoxDecoration(

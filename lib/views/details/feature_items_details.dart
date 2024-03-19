@@ -73,7 +73,7 @@ class FeatureItemDetails extends StatelessWidget {
                           Align(
                             alignment: Alignment.bottomCenter,
                             child: Container(
-                              width: double.infinity,
+                              width: 140.w,
                               padding: EdgeInsets.all(8.sp),
                               margin: EdgeInsets.symmetric(
                                 horizontal: 10.sp,
@@ -111,7 +111,7 @@ class FeatureItemDetails extends StatelessWidget {
                         height: 5.h,
                       ),
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           CustomText(
                             text:
@@ -137,7 +137,6 @@ class FeatureItemDetails extends StatelessWidget {
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           backgroundColor: const Color(0xff159d6d),
-                          fixedSize: Size(150.w, 40.h),
                         ),
                         onPressed: () {},
                         child: Row(
