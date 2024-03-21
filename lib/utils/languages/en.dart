@@ -1,6 +1,6 @@
 const Map<String, String> en = {
   'Login': 'Login',
-  'SignUp': 'Sign Up',
+  'Sign Up': 'Sign Up',
   'phone': 'Phone',
   'Password': 'Password',
   'Forget Password ?': 'Forget Password ?',
@@ -41,4 +41,12 @@ const Map<String, String> en = {
   'Items Count': 'Items Count',
   'Item': 'item',
   'Total Price': 'Total Price',
+  'Mobile': 'Mobile',
+  'Please enter your phone.': 'Please enter your phone',
+  'Please enter a valid email address.': 'Please enter a valid email address',
+  'Please enter an email address.': 'Please enter an email address',
+  'Please enter your Name.': 'Please enter your Name',
+  'Please enter a password.': 'Please enter a password',
+  'Password must be at least 8 characters long.':'Password must be at least 8 characters long',
+  'Passwords do not match.': 'Passwords do not match',
 };

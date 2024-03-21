@@ -28,26 +28,26 @@ class LoginView extends GetWidget<AuthViewModel> {
           backgroundColor: const Color(0xffffffff),
           body: SingleChildScrollView(
             child: Padding(
-              padding:  EdgeInsets.symmetric(horizontal: 20.sp, vertical: 20.sp),
+              padding: EdgeInsets.symmetric(horizontal: 20.sp, vertical: 20.sp),
               child: Form(
                 key: formKey,
                 child: Column(
                   children: [
                     Text(
                       'Login'.tr,
-                      style:  TextStyle(
+                      style: TextStyle(
                         fontSize: 24.sp,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
-                     SizedBox(
+                    SizedBox(
                       height: 10.h,
                     ),
                     Image.asset(
                       'assets/images/logo.png',
                       width: 200.w,
                     ),
-                     SizedBox(
+                    SizedBox(
                       height: 20.h,
                     ),
                     CustomTextFormField(
@@ -98,7 +98,7 @@ class LoginView extends GetWidget<AuthViewModel> {
                           // name of country
                           ),
                     ),
-                     SizedBox(
+                    SizedBox(
                       height: 20.h,
                     ),
                     Obx(
@@ -136,7 +136,7 @@ class LoginView extends GetWidget<AuthViewModel> {
                         keyboardType: TextInputType.visiblePassword,
                       ),
                     ),
-                     SizedBox(
+                    SizedBox(
                       height: 20.h,
                     ),
                     Container(
@@ -153,25 +153,21 @@ class LoginView extends GetWidget<AuthViewModel> {
                         ),
                       ),
                     ),
-                     SizedBox(
+                    SizedBox(
                       height: 20.h,
                     ),
                     CustomElevatedButton(
                       onPressed: () async {
+                        controller.isLoading.value = true;
                         try {
                           formKey.currentState!.save();
                           if (formKey.currentState!.validate()) {
-                            String result = await controller.signIn(
+                            await controller.signIn(
                               phone: mobileController.text,
                               password: passwordController.text,
                             );
-
-                            if (result.isNotEmpty) {
-                              if (kDebugMode) {
-                                print(result);
-                              }
-                            }
                           }
+                         controller.isLoading.value = false; 
                         } on Exception catch (e) {
                           // Anything else that is an exception
                           if (kDebugMode) {
@@ -188,14 +184,14 @@ class LoginView extends GetWidget<AuthViewModel> {
                       backgroundColor: Colors.green,
                       textColor: Colors.white,
                     ),
-                     SizedBox(
+                    SizedBox(
                       height: 20.h,
                     ),
                     CustomText(
                       text: 'Don\'t have an account ?'.tr,
                       fontSize: 16.sp,
                     ),
-                     SizedBox(
+                    SizedBox(
                       height: 20.h,
                     ),
                     CustomElevatedButton(
@@ -206,7 +202,7 @@ class LoginView extends GetWidget<AuthViewModel> {
                       backgroundColor: Colors.white,
                       textColor: Colors.green,
                     ),
-                     SizedBox(
+                    SizedBox(
                       height: 20.h,
                     ),
                     MaterialButton(
@@ -219,7 +215,7 @@ class LoginView extends GetWidget<AuthViewModel> {
                         fontWeight: FontWeight.w700,
                       ),
                     ),
-                     SizedBox(
+                    SizedBox(
                       height: 10.h,
                     ),
                     Row(
@@ -230,7 +226,7 @@ class LoginView extends GetWidget<AuthViewModel> {
                           fontSize: 16.sp,
                           fontWeight: FontWeight.w700,
                         ),
-                         SizedBox(
+                        SizedBox(
                           width: 10.w,
                         ),
                         GetBuilder<AppLanguage>(

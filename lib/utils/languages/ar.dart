@@ -41,4 +41,13 @@ const Map<String, String> ar = {
   'Items Count': 'عدد العناصر',
   'Item': 'عنصر',
   'Total Price': 'تكلفة المنتجات',
+  'Mobile': 'الهاتف',
+  'Please enter your phone.': 'ادخل هاتفك',
+  'Please enter a valid email address.': 'ادخل عنوان بريد صالح',
+  'Please enter an email address.': 'ادخل عنوان بريدك الالكتروني',
+  'Please enter your Name.': 'ادخل اسمك',
+  'Please enter a password.': 'ادخل كلمة المرور',
+  'Password must be at least 8 characters long.':
+      'يجب أن تتكون كلمة المرور من 8 أحرف على الأقل',
+  'Passwords do not match.': 'كلمة المرور غير مطابقة',
 };

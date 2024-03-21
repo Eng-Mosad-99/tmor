@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:tmor/core/view_model/auth_view_model.dart';
+import 'package:tmor/views/auth/login_view.dart';
 import 'package:tmor/views/widgets/custom_elevated_button.dart';
 import 'package:tmor/views/widgets/custom_text_form_filed.dart';
 
@@ -26,18 +27,18 @@ class RegisterView extends GetWidget<AuthViewModel> {
         backgroundColor: const Color(0xffffffff),
         body: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.all(20),
+            padding: EdgeInsets.all(20.sp),
             child: Form(
               key: formKey,
               child: Column(
                 children: [
-                   Text(
-                    'Sign Up',
+                  Text(
+                    'Sign Up'.tr,
                     style: TextStyle(
                       fontSize: 24.sp,
                     ),
                   ),
-                   SizedBox(
+                  SizedBox(
                     height: 15.h,
                   ),
                   CustomTextFormField(
@@ -46,11 +47,11 @@ class RegisterView extends GetWidget<AuthViewModel> {
                     keyboardType: TextInputType.text,
                     validator: (value) {
                       if (value!.isEmpty) {
-                        return 'Please enter your Name.';
+                        return 'Please enter your Name.'.tr;
                       }
                     },
                   ),
-                   SizedBox(
+                  SizedBox(
                     height: 15.h,
                   ),
                   CustomTextFormField(
@@ -59,28 +60,28 @@ class RegisterView extends GetWidget<AuthViewModel> {
                     keyboardType: TextInputType.emailAddress,
                     validator: (value) {
                       if (value!.isEmpty) {
-                        return 'Please enter an email address.';
+                        return 'Please enter an email address.'.tr;
                       }
                       // Regular expression pattern to check email shape
                       const pattern =
                           r'^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$';
                       final regExp = RegExp(pattern);
                       if (!regExp.hasMatch(value)) {
-                        return 'Please enter a valid email address.';
+                        return 'Please enter a valid email address.'.tr;
                       }
                       return null;
                     },
                   ),
-                   SizedBox(
+                  SizedBox(
                     height: 15.h,
                   ),
                   CustomTextFormField(
-                    hntText: 'mobile'.tr,
+                    hntText: 'Mobile'.tr,
                     controller: mobileController,
                     keyboardType: TextInputType.phone,
                     validator: (value) {
                       if (value!.isEmpty) {
-                        return 'Please enter your phone.';
+                        return 'Please enter your phone.'.tr;
                       }
                     },
                     prefixIcon: CountryListPick(
@@ -101,17 +102,18 @@ class RegisterView extends GetWidget<AuthViewModel> {
                       },
                     ),
                   ),
-                   SizedBox(
+                  SizedBox(
                     height: 15.h,
                   ),
                   Obx(
                     () => CustomTextFormField(
                       validator: (value) {
                         if (value!.isEmpty) {
-                          return 'Please enter a password.';
+                          return 'Please enter a password.'.tr;
                         }
                         if (value.length < 8) {
-                          return 'Password must be at least 8 characters long.';
+                          return 'Password must be at least 8 characters long.'
+                              .tr;
                         }
                         return null;
                       },
@@ -138,18 +140,17 @@ class RegisterView extends GetWidget<AuthViewModel> {
                       keyboardType: TextInputType.visiblePassword,
                     ),
                   ),
-                   SizedBox(
+                  SizedBox(
                     height: 15.h,
                   ),
                   CustomTextFormField(
                     hntText: 'confirm password'.tr,
                     controller: confirmPasswordController,
-                    keyboardType: TextInputType.text,
-                    obscureText: controller.isPasswordHidden.value,
+                    obscureText: controller.isConfirmPasswordHidden.value,
                     suffixIcon: IconButton(
                       onPressed: () {
-                        controller.isPasswordHidden.value =
-                            !controller.isPasswordHidden.value;
+                        controller.isConfirmPasswordHidden.value =
+                            !controller.isConfirmPasswordHidden.value;
                       },
                       icon: Icon(
                         controller.isPasswordHidden.value
@@ -164,15 +165,16 @@ class RegisterView extends GetWidget<AuthViewModel> {
                       if (value!.isEmpty) {
                         return 'Please enter a password.';
                       }
-                      if (value != passwordController.text) {
-                        return 'Passwords do not match.';
+                      if (confirmPasswordController.text !=
+                          passwordController.text) {
+                        return 'Passwords do not match.'.tr;
                       }
                     },
                     onSaved: (value) {
                       confirmPasswordController.text = value!;
                     },
                   ),
-                   SizedBox(
+                  SizedBox(
                     height: 15.h,
                   ),
                   CustomElevatedButton(
@@ -195,17 +197,22 @@ class RegisterView extends GetWidget<AuthViewModel> {
                         }
                       } on Exception catch (e) {
                         // Anything else that is an exception
-                        if (kDebugMode) {
-                          print('Unknown exception: $e');
-                        } // <------------------
+                        Get.snackbar(
+                          'Unknown exception:',
+                          e.toString(),
+                        );
+                        // if (kDebugMode) {
+                        //   print('Unknown exception: $e');
+                        // } // <------------------
                       } catch (e) {
+                        Get.snackbar("Register Error", e.toString());
                         // No specified type, handles all
-                        if (kDebugMode) {
-                          print('Something really unknown: $e');
-                        }
+                        // if (kDebugMode) {
+                        //   print('Something really unknown: $e');
+                        // }
                       }
                     },
-                    text: 'Sign Up',
+                    text: 'Sign Up'.tr,
                     backgroundColor: Colors.green,
                     textColor: Colors.white,
                   ),

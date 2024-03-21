@@ -9,7 +9,6 @@ import 'package:tmor/views/widgets/latest_item.dart';
 import 'package:tmor/views/widgets/most_view_products_section.dart';
 import 'package:tmor/views/widgets/page_view_builder.dart';
 import 'package:tmor/views/widgets/products_in_home_list_view.dart';
-
 import 'cart_view.dart';
 
 class HomeView extends GetWidget<HomeViewModel> {
@@ -25,8 +24,8 @@ class HomeView extends GetWidget<HomeViewModel> {
           appBar: AppBar(
             backgroundColor: Colors.white,
             centerTitle: false, // Disable centering
-            titleSpacing: -40.0.sp,
             elevation: 0,
+            titleSpacing: -30.sp,
             title: Row(
               children: [
                 Text(
@@ -70,7 +69,7 @@ class HomeView extends GetWidget<HomeViewModel> {
                 SizedBox(
                   height: 20.h,
                 ),
-                const DicoverCategoriesListView(),
+                const DiscoverCategoriesListView(),
                 SizedBox(
                   height: 15.h,
                 ),

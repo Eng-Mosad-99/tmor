@@ -3,24 +3,22 @@ import 'package:shared_preferences/shared_preferences.dart';
 class LocalStorageData {
   setData(bool isBool, String key, dynamic value) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-
     if (isBool) {
-      value = prefs.setBool(key, value);
+      var x = await prefs.setBool(key, value);
+      print(key);
+      print(x);
     } else {
-      value = prefs.setString(key, value.toString());
+      prefs.setString(key, value.toString());
     }
-    return value;
   }
 
   getData(bool isBool, String key) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    late Object? value;
     if (isBool) {
-      value = prefs.getBool(key);
+      return prefs.getBool(key);
     } else {
-      value = prefs.getString(key);
+      return prefs.getString(key);
     }
-    return value;
   }
 
   void deleteData(String key) async {

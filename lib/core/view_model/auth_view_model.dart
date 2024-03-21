@@ -7,36 +7,18 @@ import 'package:get/get.dart';
 import 'package:tmor/core/services/api.dart';
 import 'package:tmor/helper/local_storage_data.dart';
 import 'package:tmor/models/user_model.dart';
-import '../../views/auth/login_view.dart';
-import '../../views/home_view.dart';
+import '../../views/control_view.dart';
 
 class AuthViewModel extends GetxController {
-  @override
-  void onInit() {
-    super.onInit();
-    checkUserLogin();
-  }
-
   final LocalStorageData localStorage = Get.find();
-
-  var isLogin = false;
-
-  checkUserLogin() async {
-    isLogin = await localStorage.getData(true, 'isLogin') ?? true;
-    update();
-  }
-
   var isPasswordHidden = true.obs;
+  var isConfirmPasswordHidden = true.obs;
 
   ValueNotifier<bool> _isLoading = ValueNotifier(false);
   ValueNotifier<bool> get isLoading => _isLoading;
 
   String _countryCode = '+966';
   String get countryCode => _countryCode;
-
-  // /// علشان بعد ما العميل يسجل دخول وبعد ما يقفل التطبيق ويفتحه ميعملش تسجيل دخول تاني
-  // Rx<User?> _user = Rx<User?>(null);
-  // String get user => _user.value?.mobile ?? '';
 
   Future<String> signUp({
     required String mobile,
@@ -53,6 +35,7 @@ class AuthViewModel extends GetxController {
         'email': email,
         'confirmPassword': confirmPassword,
       });
+      isLoading.value = true;
       Map<String, dynamic> data = await API().post(
         file: 'users.php',
         action: 'userSignUp',
@@ -64,12 +47,13 @@ class AuthViewModel extends GetxController {
           'confirmPassword': confirmPassword,
         },
       );
-      isLoading.value = true;
+
       print(data);
       if (data['success'] == true) {
         User user = User.fromJSon(data['data']);
         localStorage.setData(false, 'user', jsonEncode(user.toJson()));
-        Get.offAll(LoginView());
+        localStorage.setData(true, 'isLogin', true);
+        Get.offAll(const ControlView());
         isLoading.value = false;
         update();
       } else {
@@ -91,6 +75,7 @@ class AuthViewModel extends GetxController {
       "mobile": countryCode + phone,
       "password": password,
     });
+    print('1111111111111');
     Map<String, dynamic> data = await API().post(
       file: 'users.php',
       action: 'userSignIn',
@@ -99,17 +84,18 @@ class AuthViewModel extends GetxController {
         "password": password,
       },
     );
-    if (kDebugMode) {
-      print(data);
-    }
+    print('2222222222222');
     isLoading.value = true;
     if (data['success'] == true) {
+      print('33333333333');
       User user = User.fromJSon(data['data']);
       localStorage.setData(false, 'user', jsonEncode(user.toJson()));
-      Get.offAll(() => const HomeView());
+      localStorage.setData(true, 'isLogin', true);
+      Get.offAll(const ControlView());
       isLoading.value = false;
       update();
     } else {
+      print('444444444444');
       Get.snackbar(
         'Login Error',
         data['message'],
@@ -119,11 +105,6 @@ class AuthViewModel extends GetxController {
       );
     }
     return '';
-    // try {
-
-    // } catch (e) {
-    //   return e.toString();
-    // }
   }
 
   Future<dynamic> forgetPassword({
