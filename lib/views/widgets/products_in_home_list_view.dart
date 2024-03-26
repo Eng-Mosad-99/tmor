@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import '../../constants.dart';
+import '../../core/view_model/cart_view_model.dart';
 import '../../core/view_model/home_view_model.dart';
 import '../../core/widgets/custom_arrow_icon.dart';
 import '../../core/widgets/custom_elevated_bottom_cart.dart';
@@ -136,8 +137,12 @@ class ProductsInHomeListView extends StatelessWidget {
                               SizedBox(
                                 height: 16.h,
                               ),
-                              CustomElevatedBottomAddToCart(
-                                onPressed: () {},
+                              GetBuilder<CartViewModel>(
+                                init: CartViewModel(),
+                                builder: (controller) =>
+                                    CustomElevatedBottomAddToCart(
+                                  onPressed: () {},
+                                ),
                               ),
                             ],
                           ),

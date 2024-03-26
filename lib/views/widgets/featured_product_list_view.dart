@@ -134,9 +134,14 @@ class FeatureProductListView extends StatelessWidget {
                             ),
                             GetBuilder<CartViewModel>(
                               init: CartViewModel(),
-                              builder: (controller) =>
+                              builder: (cartController) =>
                                   CustomElevatedBottomAddToCart(
-                                onPressed: () {},
+                                onPressed: () {
+                                  cartController.addProductToCart(
+                                      quantity: 1,
+                                      productId: controller
+                                          .featuredProducts[index].id);
+                                },
                               ),
                             ),
                           ],

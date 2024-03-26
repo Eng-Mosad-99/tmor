@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:tmor/core/view_model/auth_view_model.dart';
-import 'package:tmor/views/auth/login_view.dart';
 import 'package:tmor/views/widgets/custom_elevated_button.dart';
 import 'package:tmor/views/widgets/custom_text_form_filed.dart';
 

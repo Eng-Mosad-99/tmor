@@ -31,15 +31,15 @@ class CartProductModel {
 }
 
 class ProductItems {
-  final String id;
-  final String price;
-  final String priceBeforeDiscount;
-  final String numberPiecesAvailable;
-  final String productWeight;
-  final String name;
-  final String img;
-  final String quantity;
-  final String cartId;
+   String id;
+   String price;
+   String priceBeforeDiscount;
+   String numberPiecesAvailable;
+   String productWeight;
+   String name;
+   String img;
+   String quantity;
+   String cartId;
 
   ProductItems({
     required this.id,

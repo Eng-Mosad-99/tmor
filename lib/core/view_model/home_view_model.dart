@@ -54,6 +54,8 @@ class HomeViewModel extends GetxController {
       _getCategoryproductsInHome;
   List<CategoryProduct> _getCategoryproductsInHome = [];
 
+  get cartProductModel => null;
+
   getAllCategories() async {
     isCategoryLoading.value = true;
     Map<String, dynamic> response = await API().get(
@@ -133,4 +135,6 @@ class HomeViewModel extends GetxController {
       update();
     }
   }
+
+  void addProductToCart(quantity, int parse) {}
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:tmor/core/view_model/cart_view_model.dart';
 import '../../constants.dart';
 import '../../core/view_model/home_view_model.dart';
 import 'custom_text.dart';
@@ -110,26 +111,28 @@ class LatestItemListView extends StatelessWidget {
                       SizedBox(
                         height: 16.h,
                       ),
-                      ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xff159d6d),
-                          fixedSize: Size(150.w, 40.h),
-                        ),
-                        onPressed: () {},
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Expanded(
-                              child: CustomText(
-                                text: 'Add To Cart'.tr,
-                                color: Colors.white,
-                                fontSize: 16.sp,
+                      GetBuilder<CartViewModel>(
+                        builder: (controller) => ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: const Color(0xff159d6d),
+                            fixedSize: Size(150.w, 40.h),
+                          ),
+                          onPressed: () {},
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Expanded(
+                                child: CustomText(
+                                  text: 'Add To Cart'.tr,
+                                  color: Colors.white,
+                                  fontSize: 16.sp,
+                                ),
                               ),
-                            ),
-                            const Icon(
-                              Icons.shopping_cart,
-                            ),
-                          ],
+                              const Icon(
+                                Icons.shopping_cart,
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ],
