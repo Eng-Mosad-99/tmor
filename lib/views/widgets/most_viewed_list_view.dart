@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:tmor/views/widgets/discount_text.dart';
 import '../../constants.dart';
+import '../../core/view_model/cart_view_model.dart';
 import '../../core/view_model/home_view_model.dart';
+import '../../core/widgets/custom_elevated_bottom_cart.dart';
 import 'custom_text.dart';
 
 class MostViewedItemListView extends StatelessWidget {
   const MostViewedItemListView({super.key});
-
+  
   @override
   Widget build(BuildContext context) {
     return GetBuilder<HomeViewModel>(
@@ -57,13 +60,8 @@ class MostViewedItemListView extends StatelessWidget {
                                   color: const Color(0xfffeeeef),
                                 ),
                                 width: double.infinity,
-                                child: Text(
-                                  '5.9 % Discount',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    color: Colors.red,
-                                    fontSize: 14.sp,
-                                  ),
+                                child: DiscountText(
+                                  discountText: '5.9 % ' 'Discount'.tr,
                                 ),
                               ),
                             ),
@@ -110,26 +108,16 @@ class MostViewedItemListView extends StatelessWidget {
                       SizedBox(
                         height: 16.h,
                       ),
-                      ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xff159d6d),
-                          fixedSize: Size(150.w, 40.h),
-                        ),
-                        onPressed: () {},
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Expanded(
-                              child: CustomText(
-                                text: 'Add To Cart'.tr,
-                                color: Colors.white,
-                                fontSize: 16.sp,
-                              ),
-                            ),
-                            const Icon(
-                              Icons.shopping_cart,
-                            ),
-                          ],
+                      GetBuilder<CartViewModel>(
+                        init: CartViewModel(),
+                        builder: (cartController) =>
+                            CustomElevatedBottomAddToCart(
+                          onPressed: () {
+                            cartController.addProductToCart(
+                              quantity: 1,
+                              productId: controller.mostViewsProducts[index].id,
+                            );
+                          },
                         ),
                       ),
                     ],

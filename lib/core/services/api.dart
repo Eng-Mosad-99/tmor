@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:tmor/constants.dart';
@@ -9,7 +10,7 @@ class API {
   Future<dynamic> post({
     required String file,
     required String action,
-    required dynamic body,
+    @required dynamic body,
   }) async {
     http.Response response = await http.post(
       Uri.parse(

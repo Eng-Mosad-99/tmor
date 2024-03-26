@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:tmor/views/widgets/discount_text.dart';
 import '../../constants.dart';
 import '../../core/view_model/cart_view_model.dart';
 import '../../core/view_model/home_view_model.dart';
@@ -80,13 +81,8 @@ class ProductsInHomeListView extends StatelessWidget {
                                           color: const Color(0xfffeeeef),
                                         ),
                                         width: double.infinity,
-                                        child: Text(
-                                          '5.9 % Discount',
-                                          textAlign: TextAlign.center,
-                                          style: TextStyle(
-                                            color: Colors.red,
-                                            fontSize: 14.sp,
-                                          ),
+                                        child: DiscountText(
+                                          discountText: '5.9 % ' 'Discount'.tr,
                                         ),
                                       ),
                                     ),
@@ -139,9 +135,15 @@ class ProductsInHomeListView extends StatelessWidget {
                               ),
                               GetBuilder<CartViewModel>(
                                 init: CartViewModel(),
-                                builder: (controller) =>
+                                builder: (cartController) =>
                                     CustomElevatedBottomAddToCart(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    cartController.addProductToCart(
+                                      quantity: 1,
+                                      productId: controller
+                                          .getCategoryproductsInHome[index].id,
+                                    );
+                                  },
                                 ),
                               ),
                             ],

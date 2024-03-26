@@ -3,9 +3,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class QuantityIconBotton extends StatelessWidget {
   const QuantityIconBotton({
-    super.key, this.onTap,
+    super.key,
+    this.onTap, required this.icon,
   });
   final void Function()? onTap;
+  final IconData icon;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -21,7 +23,7 @@ class QuantityIconBotton extends StatelessWidget {
           color: Colors.transparent,
         ),
         child: Icon(
-          Icons.remove,
+          icon,
           size: 25.sp,
         ),
       ),

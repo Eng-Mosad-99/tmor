@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:tmor/core/view_model/cart_view_model.dart';
 import 'package:tmor/models/cart_product_model.dart';
+import 'package:tmor/views/widgets/discount_text.dart';
 import '../../constants.dart';
 import '../../core/view_model/home_view_model.dart';
 import '../../core/widgets/custom_arrow_icon.dart';
@@ -79,13 +80,10 @@ class FeatureProductListView extends StatelessWidget {
                                         color: const Color(0xfffeeeef),
                                       ),
                                       width: double.infinity,
-                                      child: Text(
-                                        '${featuresDiscount[index]} % Discount',
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(
-                                          color: Colors.red,
-                                          fontSize: 14.sp,
-                                        ),
+                                      child: DiscountText(
+                                        discountText:
+                                            '${featuresDiscount[index]} % Discount'
+                                                .tr,
                                       ),
                                     ),
                                   ),
@@ -138,9 +136,10 @@ class FeatureProductListView extends StatelessWidget {
                                   CustomElevatedBottomAddToCart(
                                 onPressed: () {
                                   cartController.addProductToCart(
-                                      quantity: 1,
-                                      productId: controller
-                                          .featuredProducts[index].id);
+                                    quantity: 1,
+                                    productId:
+                                        controller.featuredProducts[index].id,
+                                  );
                                 },
                               ),
                             ),

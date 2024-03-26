@@ -4,7 +4,9 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:tmor/core/view_model/cart_view_model.dart';
 import 'package:tmor/views/widgets/custom_text.dart';
+import 'package:tmor/views/widgets/discount_text.dart';
 import 'package:tmor/views/widgets/quantity_icon_botton.dart';
+import '../constants.dart';
 import 'home_view.dart';
 
 class CartView extends StatelessWidget {
@@ -44,29 +46,25 @@ class CartView extends StatelessWidget {
       ),
       body: GetBuilder<CartViewModel>(
         init: CartViewModel(),
-        builder: (controller) => controller
-                    .cartProductModel?.totalProductCount ==
-                null
-            ? Center(
-                child: SvgPicture.asset(
-                  'assets/images/undraw_empty_cart_co35.svg',
-                  width: 200.w,
-                  height: 200.h,
-                ),
+        builder: (controller) => controller.loading.value
+            ? const Center(
+                child: CircularProgressIndicator(),
               )
             : Column(
                 children: [
                   Expanded(
                     child: ListView.builder(
+                      physics: const BouncingScrollPhysics(),
                       itemCount:
                           controller.cartProductModel?.productsList.length ?? 0,
                       itemBuilder: (context, index) {
                         return Container(
                           margin: EdgeInsets.only(
-                              top: 16.sp,
-                              left: 16.sp,
-                              right: 16.sp,
-                              bottom: 8.sp),
+                            top: 16.sp,
+                            left: 16.sp,
+                            right: 16.sp,
+                            bottom: 8.sp,
+                          ),
                           width: double.infinity,
                           height: 250.sp,
                           decoration: BoxDecoration(
@@ -78,21 +76,20 @@ class CartView extends StatelessWidget {
                               Row(
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsets.all(10),
+                                    padding: EdgeInsets.all(10.sp),
                                     child: Row(
                                       children: [
                                         Container(
                                           decoration: BoxDecoration(
                                             color: Colors.white,
                                             borderRadius: BorderRadius.circular(
-                                              10,
+                                              10.sp,
                                             ),
                                           ),
                                           height: 150.sp,
                                           width: 100.sp,
                                           child: Image.network(
-                                            controller.cartProductModel!
-                                                .productsList[index].img,
+                                            '$productsImagePath${controller.cartProductModel!.productsList[index].img}',
                                             width: 50.sp,
                                             height: 50.sp,
                                           ),
@@ -124,13 +121,16 @@ class CartView extends StatelessWidget {
                                                       alignment:
                                                           Alignment.center,
                                                       maxLines: 2,
-                                                      fontSize: 14.sp,
+                                                      fontSize: 18.sp,
                                                     ),
                                                   ),
                                                 ),
                                                 Container(
                                                   width: 50.w,
                                                   height: 40.h,
+                                                  margin: EdgeInsets.symmetric(
+                                                    vertical: 20.sp,
+                                                  ),
                                                   decoration: BoxDecoration(
                                                     color:
                                                         const Color(0xff159c6c),
@@ -152,18 +152,14 @@ class CartView extends StatelessWidget {
                                                 horizontal: 10.sp,
                                                 vertical: 10.sp,
                                               ),
-                                              width: 100.sp,
+                                              width: 120.sp,
                                               height: 40.sp,
                                               decoration: const BoxDecoration(
                                                 color: Color(0xffffeeef),
                                               ),
-                                              child: Text(
-                                                '5.9 % Discount',
-                                                textAlign: TextAlign.center,
-                                                style: TextStyle(
-                                                  color: Colors.red,
-                                                  fontSize: 13.sp,
-                                                ),
+                                              child: DiscountText(
+                                                discountText:
+                                                    '5.9 % ' 'Discount'.tr,
                                               ),
                                             ),
                                             SizedBox(
@@ -180,10 +176,11 @@ class CartView extends StatelessWidget {
                                                 SizedBox(
                                                   width: 50.w,
                                                 ),
-                                                QuantityIconBotton(
-                                                    // onTap: controller
-                                                    //     .increaseQuantity(index),
-                                                    ),
+                                                const QuantityIconBotton(
+                                                  icon: Icons.add,
+                                                  // onTap: controller
+                                                  //     .increaseQuantity(index),
+                                                ),
                                                 SizedBox(
                                                   width: 15.w,
                                                 ),
@@ -199,9 +196,10 @@ class CartView extends StatelessWidget {
                                                   width: 15.w,
                                                 ),
                                                 const QuantityIconBotton(
-                                                    // onTap: controller
-                                                    //     .decreaseQuantity(index),
-                                                    ),
+                                                  icon: Icons.remove,
+                                                  // onTap: controller
+                                                  //     .decreaseQuantity(index),
+                                                ),
                                               ],
                                             ),
                                             SizedBox(

@@ -47,6 +47,8 @@ const Map<String, String> en = {
   'Please enter an email address.': 'Please enter an email address',
   'Please enter your Name.': 'Please enter your Name',
   'Please enter a password.': 'Please enter a password',
-  'Password must be at least 8 characters long.':'Password must be at least 8 characters long',
+  'Password must be at least 8 characters long.':
+      'Password must be at least 8 characters long',
   'Passwords do not match.': 'Passwords do not match',
+  'Discount': 'Discount',
 };

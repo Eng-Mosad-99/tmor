@@ -28,8 +28,7 @@ class CartViewModel extends GetxController {
         'quantity': quantity,
       },
     );
-    print('000000000000000000000000000000000');
-    print(response);
+
     if (response["success"] == true) {
       await getAllCart();
     }
@@ -39,28 +38,12 @@ class CartViewModel extends GetxController {
   Future<void> getAllCart() async {
     // ignore: missing_required_param
     Map<String, dynamic> response = await API().post(
-      body: {},
       file: 'users.php',
       action: 'getAllCart',
     );
     if (response['success'] == true) {
       _cartProductModel = CartProductModel.fromJson(response['data']);
     }
+    update();
   }
-
-  // increaseQuantity(int index) async {
-  //   _cartProductModel!.productsList[index].quantity++;
-
-  //   _totalPrice +=
-  //       (double.tryParse(_cartProductModel!.totalPrice.toString()) ?? 0);
-  //   update();
-  // }
-
-  // decreaseQuantity(int index) async {
-  //   _cartProductModel!.productsList[index].quantity--;
-
-  //   _totalPrice +=
-  //       (double.tryParse(_cartProductModel!.totalPrice.toString()) ?? 0);
-  //   update();
-  // }
 }

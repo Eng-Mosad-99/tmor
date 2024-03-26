@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:tmor/core/view_model/cart_view_model.dart';
+import 'package:tmor/views/widgets/discount_text.dart';
 import '../../constants.dart';
 import '../../core/view_model/home_view_model.dart';
+import '../../core/widgets/custom_elevated_bottom_cart.dart';
 import 'custom_text.dart';
 
 class LatestItemListView extends StatelessWidget {
@@ -58,13 +60,8 @@ class LatestItemListView extends StatelessWidget {
                                   color: const Color(0xfffeeeef),
                                 ),
                                 width: double.infinity,
-                                child: Text(
-                                  '5.9 % Discount',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    color: Colors.red,
-                                    fontSize: 14.sp,
-                                  ),
+                                child: DiscountText(
+                                  discountText: '5.9 % ' 'Discount'.tr,
                                 ),
                               ),
                             ),
@@ -112,27 +109,16 @@ class LatestItemListView extends StatelessWidget {
                         height: 16.h,
                       ),
                       GetBuilder<CartViewModel>(
-                        builder: (controller) => ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color(0xff159d6d),
-                            fixedSize: Size(150.w, 40.h),
-                          ),
-                          onPressed: () {},
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Expanded(
-                                child: CustomText(
-                                  text: 'Add To Cart'.tr,
-                                  color: Colors.white,
-                                  fontSize: 16.sp,
-                                ),
-                              ),
-                              const Icon(
-                                Icons.shopping_cart,
-                              ),
-                            ],
-                          ),
+                        init: CartViewModel(),
+                        builder: (cartController) =>
+                            CustomElevatedBottomAddToCart(
+                          onPressed: () {
+                            cartController.addProductToCart(
+                              quantity: 1,
+                              productId:
+                                  controller.latestitemProducts[index].id,
+                            );
+                          },
                         ),
                       ),
                     ],

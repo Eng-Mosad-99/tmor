@@ -50,4 +50,5 @@ const Map<String, String> ar = {
   'Password must be at least 8 characters long.':
       'يجب أن تتكون كلمة المرور من 8 أحرف على الأقل',
   'Passwords do not match.': 'كلمة المرور غير مطابقة',
+  'Discount': 'خصم',
 };
