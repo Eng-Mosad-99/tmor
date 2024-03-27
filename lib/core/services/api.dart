@@ -60,6 +60,7 @@ class API {
       'Authorization': userData?.authenticationCode ?? '',
       'lang_code': Get.deviceLocale?.languageCode ?? 'en',
       'user_id': userData?.id ?? '',
+      'Content-Type': ' application/json',
     };
   }
 }

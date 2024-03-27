@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:tmor/core/view_model/cart_view_model.dart';
 import 'package:tmor/views/widgets/custom_text.dart';
@@ -20,12 +19,16 @@ class CartView extends StatelessWidget {
         backgroundColor: Colors.white,
         elevation: 0.0,
         actions: [
-          IconButton(
-            onPressed: () {},
-            icon: Icon(
-              Icons.delete,
-              color: Colors.black,
-              size: 25.sp,
+          GetBuilder<CartViewModel>(
+            builder: (controller) => IconButton(
+              onPressed: () {
+                controller.deleteAllCart();
+              },
+              icon: Icon(
+                Icons.delete,
+                color: Colors.black,
+                size: 25.sp,
+              ),
             ),
           ),
         ],
@@ -56,7 +59,7 @@ class CartView extends StatelessWidget {
                     child: ListView.builder(
                       physics: const BouncingScrollPhysics(),
                       itemCount:
-                          controller.cartProductModel?.productsList.length ?? 0,
+                          controller.cartProductModel?.productsList.length,
                       itemBuilder: (context, index) {
                         return Container(
                           margin: EdgeInsets.only(
@@ -89,7 +92,7 @@ class CartView extends StatelessWidget {
                                           height: 150.sp,
                                           width: 100.sp,
                                           child: Image.network(
-                                            '$productsImagePath${controller.cartProductModel!.productsList[index].img}',
+                                            '$productsImagePath${controller.cartProductModel?.productsList[index].img}',
                                             width: 50.sp,
                                             height: 50.sp,
                                           ),
@@ -176,10 +179,16 @@ class CartView extends StatelessWidget {
                                                 SizedBox(
                                                   width: 50.w,
                                                 ),
-                                                const QuantityIconBotton(
-                                                  icon: Icons.add,
-                                                  // onTap: controller
-                                                  //     .increaseQuantity(index),
+                                                GestureDetector(
+                                                  onTap: () {
+                                                    print('Mesallam+++++++');
+                                                    controller.increaseQuantity(
+                                                        index);
+                                                  },
+                                                  child:
+                                                      const QuantityIconBotton(
+                                                    icon: Icons.add,
+                                                  ),
                                                 ),
                                                 SizedBox(
                                                   width: 15.w,
@@ -195,10 +204,16 @@ class CartView extends StatelessWidget {
                                                 SizedBox(
                                                   width: 15.w,
                                                 ),
-                                                const QuantityIconBotton(
-                                                  icon: Icons.remove,
-                                                  // onTap: controller
-                                                  //     .decreaseQuantity(index),
+                                                GestureDetector(
+                                                  onTap: () {
+                                                    print('Mesallam--------');
+                                                    controller.decreaseQuantity(
+                                                        index);
+                                                  },
+                                                  child:
+                                                      const QuantityIconBotton(
+                                                    icon: Icons.remove,
+                                                  ),
                                                 ),
                                               ],
                                             ),

@@ -10,7 +10,7 @@ import 'custom_text.dart';
 
 class MostViewedItemListView extends StatelessWidget {
   const MostViewedItemListView({super.key});
-  
+
   @override
   Widget build(BuildContext context) {
     return GetBuilder<HomeViewModel>(

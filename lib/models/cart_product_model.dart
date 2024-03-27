@@ -12,9 +12,9 @@ class CartProductModel {
   factory CartProductModel.fromJson(Map<String, dynamic> map) {
     final List<dynamic> subCategoriesJson = map['product_items'] ?? [];
     return CartProductModel(
-      totalDiscount: map['total_discount'],
-      totalProductCount: map['total_product_count'],
-      totalPrice: map['total_price'],
+      totalDiscount: map['total_discount'] ?? 0,
+      totalProductCount: map['total_product_count'] ?? 0,
+      totalPrice: map['total_price'] ?? 0,
       productsList:
           subCategoriesJson.map((e) => ProductItems.fromJSon(e)).toList(),
     );
@@ -31,15 +31,15 @@ class CartProductModel {
 }
 
 class ProductItems {
-   String id;
-   String price;
-   String priceBeforeDiscount;
-   String numberPiecesAvailable;
-   String productWeight;
-   String name;
-   String img;
-   String quantity;
-   String cartId;
+  String id;
+  String price;
+  String priceBeforeDiscount;
+  String numberPiecesAvailable;
+  String productWeight;
+  String name;
+  String img;
+  String quantity;
+  String cartId;
 
   ProductItems({
     required this.id,

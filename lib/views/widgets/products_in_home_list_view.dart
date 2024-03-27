@@ -141,7 +141,9 @@ class ProductsInHomeListView extends StatelessWidget {
                                     cartController.addProductToCart(
                                       quantity: 1,
                                       productId: controller
-                                          .getCategoryproductsInHome[index].id,
+                                          .getCategoryproductsInHome[index]
+                                          .productsList[prodIndex]
+                                          .id,
                                     );
                                   },
                                 ),

@@ -11,13 +11,14 @@ import '../../core/widgets/custom_elevated_bottom_cart.dart';
 import '../details/feature_items_details.dart';
 import 'custom_text.dart';
 
+// ignore: must_be_immutable
 class FeatureProductListView extends StatelessWidget {
-  const FeatureProductListView(
+  FeatureProductListView(
       {super.key, required this.featuresDiscount, this.cartProductModel});
 
   final List<double> featuresDiscount;
   final CartProductModel? cartProductModel;
-
+  bool isButtonClicked = false;
   @override
   Widget build(BuildContext context) {
     return GetBuilder<HomeViewModel>(
@@ -135,11 +136,20 @@ class FeatureProductListView extends StatelessWidget {
                               builder: (cartController) =>
                                   CustomElevatedBottomAddToCart(
                                 onPressed: () {
-                                  cartController.addProductToCart(
-                                    quantity: 1,
-                                    productId:
-                                        controller.featuredProducts[index].id,
-                                  );
+                                  if (isButtonClicked == true) {
+                                    Container(
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(16),
+                                        color: Colors.red,
+                                      ),
+                                    );
+                                  } else {
+                                    cartController.addProductToCart(
+                                      quantity: 1,
+                                      productId:
+                                          controller.featuredProducts[index].id,
+                                    );
+                                  }
                                 },
                               ),
                             ),

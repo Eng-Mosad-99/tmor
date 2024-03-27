@@ -4,8 +4,6 @@ import 'package:get/get.dart';
 import 'package:tmor/core/view_model/home_view_model.dart';
 import 'package:tmor/views/widgets/custom_text.dart';
 import '../../constants.dart';
-import '../../core/view_model/cart_view_model.dart';
-import '../../core/widgets/custom_elevated_bottom_cart.dart';
 import '../home_view.dart';
 
 class FeatureItemDetails extends StatelessWidget {

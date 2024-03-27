@@ -4,11 +4,10 @@ class LocalStorageData {
   setData(bool isBool, String key, dynamic value) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     if (isBool) {
-      var x = await prefs.setBool(key, value);
-      print(key);
-      print(x);
+   await prefs.setBool(key, value);
+
     } else {
-      prefs.setString(key, value.toString());
+    await  prefs.setString(key, value.toString());
     }
   }
 
