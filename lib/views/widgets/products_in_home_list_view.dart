@@ -7,13 +7,15 @@ import '../../core/view_model/cart_view_model.dart';
 import '../../core/view_model/home_view_model.dart';
 import '../../core/widgets/custom_arrow_icon.dart';
 import '../../core/widgets/custom_elevated_bottom_cart.dart';
+import '../../models/cart_product_model.dart';
 import 'custom_text.dart';
 
 class ProductsInHomeListView extends StatelessWidget {
   const ProductsInHomeListView({
     super.key,
+    this.cartProductModel,
   });
-
+  final CartProductModel? cartProductModel;
   @override
   Widget build(BuildContext context) {
     return GetBuilder<HomeViewModel>(
@@ -138,13 +140,26 @@ class ProductsInHomeListView extends StatelessWidget {
                                 builder: (cartController) =>
                                     CustomElevatedBottomAddToCart(
                                   onPressed: () {
-                                    cartController.addProductToCart(
-                                      quantity: 1,
-                                      productId: controller
-                                          .getCategoryproductsInHome[index]
-                                          .productsList[prodIndex]
-                                          .id,
-                                    );
+                                    // ignore: unrelated_type_equality_checks
+                                    cartProductModel?.productsList[prodIndex]
+                                                .quantity ==
+                                            1
+                                        ? Container(
+                                            width: 75,
+                                            height: 75,
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(16),
+                                            ),
+                                          )
+                                        : cartController.addProductToCart(
+                                            quantity: 1,
+                                            productId: controller
+                                                .getCategoryproductsInHome[
+                                                    index]
+                                                .productsList[prodIndex]
+                                                .id,
+                                          );
                                   },
                                 ),
                               ),

@@ -13,12 +13,11 @@ import 'custom_text.dart';
 
 // ignore: must_be_immutable
 class FeatureProductListView extends StatelessWidget {
-  FeatureProductListView(
+  const FeatureProductListView(
       {super.key, required this.featuresDiscount, this.cartProductModel});
 
   final List<double> featuresDiscount;
   final CartProductModel? cartProductModel;
-  bool isButtonClicked = false;
   @override
   Widget build(BuildContext context) {
     return GetBuilder<HomeViewModel>(
@@ -136,25 +135,20 @@ class FeatureProductListView extends StatelessWidget {
                               builder: (cartController) =>
                                   CustomElevatedBottomAddToCart(
                                 onPressed: () {
-                                  cartController.addProductToCart(
-                                            quantity: 1,
-                                            productId: controller
-                                                .featuredProducts[index].id,
-                                          ) ==
-                                          true
-                                      ? Container(
-                                          width: 100.w,
-                                          height: 100.h,
-                                          decoration: const BoxDecoration(
-                                            color: Colors.red,
-                                          ),
-                                          child: Text(controller
-                                              .featuredProducts[index].quantity
-                                              .toString()),
+                                  // ignore: unrelated_type_equality_checks
+                                  cartProductModel
+                                              ?.productsList[index].quantity ==
+                                          1
+                                      ? cartController.updateCartQuantity(
+                                          productQuantity: int.parse(controller
+                                              .featuredProducts[index]
+                                              .quantity),
+                                          productId: controller
+                                              .featuredProducts[index].id,
                                         )
-                                      : cartController.updateCartQuantity(
+                                      : cartController.addProductToCart(
                                           quantity: 1,
-                                          id: controller
+                                          productId: controller
                                               .featuredProducts[index].id,
                                         );
                                 },

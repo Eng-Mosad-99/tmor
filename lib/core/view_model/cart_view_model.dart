@@ -1,14 +1,14 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:tmor/core/services/api.dart';
 import 'package:tmor/models/cart_product_model.dart';
+import 'dart:developer';
 
 class CartViewModel extends GetxController {
   CartViewModel() {
     getAllCart();
   }
-  //   deleteAllCart();
-  // }
+
   // ignore: prefer_final_fields
   ValueNotifier<bool> _loading = ValueNotifier(false);
   ValueNotifier<bool> get loading => _loading;
@@ -32,7 +32,6 @@ class CartViewModel extends GetxController {
     if (response["success"] == true) {
       await getAllCart();
     }
-    return response;
   }
 
   Future<void> getAllCart() async {
@@ -47,19 +46,44 @@ class CartViewModel extends GetxController {
     }
   }
 
-  updateCartQuantity({required int quantity, required String id}) async {
+  updateCartQuantity(
+      {required int productQuantity,
+      required String productId,
+      int? index}) async {
     Map<String, dynamic> response = await API().post(
       file: 'users.php',
       action: 'updateCartQuantity',
       body: {
-        'id': id,
-        'quantity': quantity,
+        'id': productId,
+        'quantity': productQuantity,
       },
     );
+    log('mohammed0000000');
+    log('response');
+    if (kDebugMode) {
+      print(response);
+    }
     if (response["success"] == true) {
       await getAllCart();
+      log('mohammed111111111');
     }
-    return response;
+    // update();
+  }
+
+  deleteOneCart({required ProductItems productItems}) async {
+    var productIndex = _cartProductModel!.productsList.indexOf(productItems);
+    _cartProductModel!.productsList.remove(productItems);
+    update();
+    Map<String, dynamic> response = await API().post(
+      file: 'users.php',
+      action: 'deleteCartOne',
+      body: {
+        'id': productItems.id,
+      },
+    );
+    if (response['success'] == false) {
+      _cartProductModel!.productsList.insert(productIndex, productItems);
+    }
   }
 
   deleteAllCart() async {
@@ -75,18 +99,18 @@ class CartViewModel extends GetxController {
     }
   }
 
-  increaseQuantity(int index) async {
-    // _cartProductModel.productsList[index].quantity++;
-    _totalPrice +=
-        (double.tryParse(_cartProductModel!.productsList[index].price) ?? 10);
-    update();
-  }
+  // increaseQuantity(int index) async {
+  //   // _cartProductModel.productsList[index].quantity++;
+  //   _totalPrice +=
+  //       (double.tryParse(_cartProductModel!.productsList[index].price) ?? 10);
+  //   update();
+  // }
 
-  decreaseQuantity(int index) async {
-    // _cartProductModel!.productsList[index].quantity--;
+  // decreaseQuantity(int index) async {
+  //   // _cartProductModel!.productsList[index].quantity--;
 
-    _totalPrice -=
-        (double.tryParse(_cartProductModel!.productsList[index].price) ?? 10);
-    update();
-  }
+  //   _totalPrice -=
+  //       (double.tryParse(_cartProductModel!.productsList[index].price) ?? 10);
+  //   update();
+  // }
 }

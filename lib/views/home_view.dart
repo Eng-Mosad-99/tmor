@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:tmor/core/view_model/cart_view_model.dart';
 import 'package:tmor/core/view_model/home_view_model.dart';
+import 'package:tmor/models/cart_product_model.dart';
 import 'package:tmor/views/widgets/custom_search_text_field.dart';
+import 'package:tmor/views/widgets/custom_text.dart';
 import 'package:tmor/views/widgets/discover_categories_listView.dart';
 import 'package:tmor/views/widgets/featured_product_list_view.dart';
 import 'package:tmor/views/widgets/latest_item.dart';
@@ -23,7 +26,7 @@ class HomeView extends GetWidget<HomeViewModel> {
           backgroundColor: const Color(0xffffffff),
           appBar: AppBar(
             backgroundColor: Colors.white,
-            centerTitle: false, // Disable centering
+            centerTitle: false,
             elevation: 0,
             titleSpacing: -30.sp,
             title: Row(
@@ -39,21 +42,58 @@ class HomeView extends GetWidget<HomeViewModel> {
               ],
             ),
             actions: [
-              IconButton(
-                onPressed: () {},
-                icon: const Icon(
-                  Icons.notifications_none,
-                ),
+              const Icon(
+                Icons.notifications_none,
                 color: Colors.black,
               ),
-              IconButton(
-                onPressed: () {
-                  Get.to(() => const CartView());
-                },
-                icon: const Icon(
-                  Icons.shopping_cart,
-                  color: Colors.black,
-                ),
+              GetBuilder<CartViewModel>(
+                builder: (controller) =>
+                    controller.cartProductModel?.totalProductCount == 0 ||
+                            controller.cartProductModel?.totalProductCount ==
+                                null
+                        ? IconButton(
+                            onPressed: () {
+                              Get.to(() => const CartView());
+                            },
+                            icon: const Icon(
+                              Icons.shopping_cart,
+                              color: Colors.black,
+                            ),
+                          )
+                        : Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Stack(
+                              alignment: Alignment.topLeft,
+                              children: [
+                                IconButton(
+                                  onPressed: () {
+                                    Get.to(() => const CartView());
+                                  },
+                                  icon: const Icon(
+                                    Icons.shopping_cart,
+                                    color: Colors.black,
+                                  ),
+                                ),
+                                GetBuilder<CartViewModel>(
+                                  builder: (controller) => CircleAvatar(
+                                    backgroundColor: Colors.green,
+                                    radius: 10,
+                                    child: CustomText(
+                                      text: controller.cartProductModel!
+                                                  .totalProductCount ==
+                                              0
+                                          ? ''
+                                          : controller.cartProductModel!
+                                              .totalProductCount
+                                              .toString(),
+                                      color: Colors.white,
+                                      fontSize: 14,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
               ),
             ],
           ),
