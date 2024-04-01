@@ -136,20 +136,27 @@ class FeatureProductListView extends StatelessWidget {
                               builder: (cartController) =>
                                   CustomElevatedBottomAddToCart(
                                 onPressed: () {
-                                  if (isButtonClicked == true) {
-                                    Container(
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(16),
-                                        color: Colors.red,
-                                      ),
-                                    );
-                                  } else {
-                                    cartController.addProductToCart(
-                                      quantity: 1,
-                                      productId:
-                                          controller.featuredProducts[index].id,
-                                    );
-                                  }
+                                  cartController.addProductToCart(
+                                            quantity: 1,
+                                            productId: controller
+                                                .featuredProducts[index].id,
+                                          ) ==
+                                          true
+                                      ? Container(
+                                          width: 100.w,
+                                          height: 100.h,
+                                          decoration: const BoxDecoration(
+                                            color: Colors.red,
+                                          ),
+                                          child: Text(controller
+                                              .featuredProducts[index].quantity
+                                              .toString()),
+                                        )
+                                      : cartController.updateCartQuantity(
+                                          quantity: 1,
+                                          id: controller
+                                              .featuredProducts[index].id,
+                                        );
                                 },
                               ),
                             ),
